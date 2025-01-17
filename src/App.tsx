@@ -8,12 +8,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/profierecalanding" element={<Home />} />
-        <Route path="/profierecalanding/Catalogo" element={<Catalogo />} />
-      </Routes>
-      <Footer />
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Navbar />
+        <main style={{ flex: 1 }}>
+          <Routes>
+            <Route path="/profierecalanding" element={<Home />} />
+            <Route path="/profierecalanding/Catalogo" element={<Catalogo />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }
