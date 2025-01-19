@@ -8,9 +8,9 @@ function Home() {
   return (
     <>
       <BannerCarrousel />
-      <TabsProductM />
-      <AboutBanner/>
       <ImportarnP/>
+      <AboutBanner/>
+      <TabsProductM />
     </>
   );
 }

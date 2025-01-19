@@ -2,10 +2,9 @@ import { Carousel } from "@mantine/carousel";
 import { Image } from '@mantine/core';
 
 function BannerCarrousel() {
-
     return (
         <>
-            <div style={{ height: 'auto', display: 'flex' }}>
+            <div style={{ height: 'auto', display: 'flex', overflow: 'hidden' }}>
                 <Carousel
                     mb={15}
                     mt={25}
@@ -20,12 +19,13 @@ function BannerCarrousel() {
                             '&[data-active]': {
                                 width: 40,
                             },
-                        },
+                        }
                     }}
                 >
                     <Carousel.Slide>
                         <Image
                             height="auto"
+                            
                             width="100%"
                             fit="cover"
                             src="https://wallpapers.com/images/hd/blue-aesthetic-moon-df8850p673zj275y.jpg"

@@ -14,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/profierecalanding" element={<Home />} />
             <Route path="/profierecalanding/Catalogo" element={<Catalogo />} />
+            <Route path="*" element={<Home />} />
           </Routes>
         </main>
         <Footer />

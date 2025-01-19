@@ -39,7 +39,7 @@ function ImportarnP() {
 
     return (
         <>
-            <Title mr={15} order={1}>Productos Destacados</Title>
+            <Title ta='center' mt='5%' mb='5%' mr={15} order={1}>Productos Destacados</Title>
             <Divider my="sm" mx='sm' />
 
 
