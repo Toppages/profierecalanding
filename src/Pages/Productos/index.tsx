@@ -1,10 +1,9 @@
-import { Checkbox } from '@mantine/core';
+import { PData } from './Pdata';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
-import { IconEye, IconGauge, IconSearch, IconShoppingCart } from '@tabler/icons-react';
-import { Breadcrumbs, Anchor, Text, NavLink, Group, Grid, Title, Image, Pagination, TextInput, Card, ScrollArea, ActionIcon } from '@mantine/core';
-import { PData } from './Pdata';  // Ajusta la ruta según sea necesario
+import { IconEye, IconGauge, IconFilter, IconSearch, IconShoppingCart } from '@tabler/icons-react';
+import { Breadcrumbs, Anchor, Checkbox, Text, NavLink, Group, Grid, Title, Image, Pagination, TextInput, Card, ScrollArea, ActionIcon, Drawer } from '@mantine/core';
 
 function Catalogo() {
     const isMobile = useMediaQuery('(min-width: 1000px)');
@@ -16,7 +15,7 @@ function Catalogo() {
     const isLargeScreen = useMediaQuery('(min-width: 1000px)');
     const isMediumScreen = useMediaQuery('(min-width: 768px)');
     const isSmallScreen = useMediaQuery('(max-width: 767px)');
-    
+    const [opened, setOpened] = useState(false);
     const items = [
         { title: 'Inicio', href: '/profierecalanding' },
         { title: 'Catalogo', href: '#' },
@@ -64,7 +63,39 @@ function Catalogo() {
 
     return (
         <>
-            <Breadcrumbs mt={15} ml={15}>{items}</Breadcrumbs>
+            <Breadcrumbs mt={10} ml={15}>{items}</Breadcrumbs>
+            <Drawer
+                opened={opened}
+                onClose={() => setOpened(false)}
+                padding="xl"
+                size="xl"
+            >
+
+                {navLinkData.map((navItem, index) => (
+                    <NavLink
+                        key={index}
+                        mt={15}
+                        label={navItem.label}
+                        icon={navItem.icon}
+                        childrenOffset={28}
+                        style={{
+                            color: activeIndex === index ? 'red' : 'black',
+                            cursor: 'pointer',
+                            flexShrink: 0,
+                        }}
+                        onClick={() => handleNavLinkClick(index)}
+                        opened={activeIndex === index}
+                    >
+                        {navItem.subtexts.map((subtext, subIndex) => (
+                            <div key={subIndex}>
+                                <Checkbox mt={8} label={subtext} color="red" />
+                            </div>
+                        ))}
+                    </NavLink>
+                ))}
+
+
+            </Drawer>
             <Group align="start" style={{ width: '100%' }} spacing={isSmallScreen ? 'xs' : 'lg'}>
                 {isLargeScreen && (
                     <div style={{ flex: 1, maxWidth: '150px' }}>
@@ -102,6 +133,7 @@ function Catalogo() {
                         }}
                     >
                         <Pagination
+                            mt={isMobile ? 0 : 20}
                             total={totalPages}
                             color="red"
                             size="lg"
@@ -109,13 +141,19 @@ function Catalogo() {
                             page={activePage}
                             onChange={setActivePage}
                         />
-                        <TextInput
-                            placeholder="Buscar...."
-                            radius="lg"
-                            size="lg"
-                            mr={15}
-                            icon={<IconSearch size={14} />}
-                        />
+                        <Group>
+
+                            <ActionIcon onClick={() => setOpened(true)} color="red" size="xl" radius='md' variant="filled" style={{ display: isMobile ? "none" : "flex" }}>
+                                <IconFilter size={34} />
+                            </ActionIcon>
+                            <TextInput
+                                placeholder="Buscar...."
+                                radius="md"
+                                size="lg"
+                                mr={isMobile ? 20 : 0}
+                                icon={<IconSearch size={14} />}
+                            />
+                        </Group>
                     </Group>
 
                     <ScrollArea style={{ height: 1250 }} type="never">

@@ -36,17 +36,25 @@ function Drawer() {
                             onClick={closeDrawer}
                         >
                             <Text c='black' mr={15} fw={700}>
-                            Catalogo
+                                Catalogo
                             </Text>
                         </Link>
-                        <Text mt={15} fw={700}>
-                            Texto
+                        <Link
+                            to="/profierecalanding/Nosotros"
+                            style={{ textDecoration: 'none', outline: 'none' }}
+                            onClick={closeDrawer}
+                        >
+                            <Text c='black' mt={15} fw={700}>
+                                Nuestra empresa
+
+                            </Text>
+                        </Link>
+                        <Text c='black' mt={15} fw={700}>
+                            Contactanos
+
                         </Text>
-                        <Text mt={15} fw={700}>
-                            Texto
-                        </Text>
-                        <Text mt={15} fw={700}>
-                            Texto
+                        <Text c='black' mt={15} fw={700}>
+                            Servicios
                         </Text>
                     </div>
                 </Container>
