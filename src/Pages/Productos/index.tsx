@@ -1,8 +1,8 @@
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
-import { IconEye, IconGauge, IconSearch , IconShoppingCart } from '@tabler/icons-react';
+import { IconEye, IconGauge, IconSearch, IconShoppingCart } from '@tabler/icons-react';
 import { Breadcrumbs, Anchor, Text, NavLink, Group, Grid, Title, Image, Pagination, TextInput, Card, ScrollArea, ActionIcon } from '@mantine/core';
-import { motion } from 'framer-motion';
 
 function Catalogo() {
     const isMobile = useMediaQuery('(min-width: 1000px)');
@@ -169,7 +169,7 @@ function Catalogo() {
         hover: {
             scale: 1.05,
             boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
-            transition: { duration: 0.3 } // Puedes ajustar esta duración a lo que desees
+            transition: { duration: 0.3 }
         },
         rest: {
             scale: 1,
@@ -281,12 +281,12 @@ function Catalogo() {
                                                         }}
                                                     >
 
-                                                        <ActionIcon color="red">
-                                                            <IconEye size={26} />
+                                                        <ActionIcon >
+                                                            <IconEye color="red" size={34} />
                                                         </ActionIcon>
 
-                                                        <ActionIcon color="red">
-                                                            <IconShoppingCart size={26} />
+                                                        <ActionIcon radius="xl">
+                                                            <IconShoppingCart color="red" size={34} />
                                                         </ActionIcon>
                                                     </Group>
 
@@ -294,10 +294,11 @@ function Catalogo() {
                                                         <Image
                                                             src='https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg'
                                                             alt={data.title}
+                                                            fit="contain"
                                                             style={{
                                                                 width: '100%',
                                                                 height: 'auto',
-                                                                objectFit: 'cover',  // Asegura que la imagen cubra todo el contenedor sin deformarse
+                                                                objectFit: 'cover',
                                                                 maxWidth: '100%',
                                                                 margin: '0 auto',
                                                             }}

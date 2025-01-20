@@ -1,13 +1,15 @@
 import { Carousel, Embla } from '@mantine/carousel';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, Image, ActionIcon, Title } from '@mantine/core';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 
 function Productsmain() {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [embla, setEmbla] = useState<Embla | null>(null);
     const [showControls, setShowControls] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+    const componentRef = useRef<HTMLDivElement>(null);
 
     const handleScroll = useCallback(() => {
         if (!embla) return;
@@ -22,21 +24,39 @@ function Productsmain() {
         }
     }, [embla, handleScroll]);
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsVisible(entry.isIntersecting),
+            { threshold: 0.1 }
+        );
+
+        if (componentRef.current) {
+            observer.observe(componentRef.current);
+        }
+
+        return () => {
+            if (componentRef.current) {
+                observer.unobserve(componentRef.current);
+            }
+        };
+    }, []);
+
     const handlePrev = () => embla && embla.scrollPrev();
     const handleNext = () => embla && embla.scrollNext();
 
     const cards = [
-        { title: "texto", image: "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" },
-        { title: "texto", image: "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" },
-        { title: "texto", image: "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" },
-        { title: "texto", image: "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" },
-        { title: "texto", image: "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" },
-        { title: "texto", image: "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" },
-        { title: "texto", image: "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" },
+        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
+        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
+        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
+        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
+        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
+        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
+        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
     ];
 
     return (
         <div
+            ref={componentRef}
             onMouseEnter={() => setShowControls(true)}
             onMouseLeave={() => setShowControls(false)}
             style={{ position: 'relative' }}
@@ -63,18 +83,24 @@ function Productsmain() {
             >
                 {cards.map((card, index) => (
                     <Carousel.Slide key={index}>
-                        <Card mr={10} p="lg" radius="lg">
-                            <Image
-                                src={card.image}
-                                alt={card.title}
-                                fit="contain" 
-                                radius="md"
-                                width="100%"
-                                height="100%"
-                                style={{ objectFit: 'contain', maxHeight: '850px' }}
-                            />
-                            <Title ta="center" order={4}>{card.title}</Title>
-                        </Card>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <Card mr={10} p="lg" radius="lg">
+                                <Image
+                                    src={card.image}
+                                    alt={card.title}
+                                    fit="contain" 
+                                    radius="md"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ objectFit: 'contain', maxHeight: '850px' }}
+                                />
+                                <Title ta="center" order={4}>{card.title}</Title>
+                            </Card>
+                        </motion.div>
                     </Carousel.Slide>
                 ))}
             </Carousel>
