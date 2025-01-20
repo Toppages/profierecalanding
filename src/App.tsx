@@ -4,6 +4,8 @@ import Home from './Home';
 import Footer from './Components/Footer/Index';
 import Catalogo from './Pages/Productos';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ActionIcon } from '@mantine/core';
+import { IconBrandWhatsapp } from '@tabler/icons-react';
 
 function App() {
   return (
@@ -17,6 +19,16 @@ function App() {
             <Route path="*" element={<Home />} />
           </Routes>
         </main>
+              <a 
+        href="https://wa.me/+584127341636?text=hola" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 1000 }}
+      >
+        <ActionIcon p={8} color="green" size="xl" radius="xl" variant="filled">
+          <IconBrandWhatsapp size={34} />
+        </ActionIcon>
+      </a>
         <Footer />
       </div>
     </Router>

@@ -1,157 +1,22 @@
+import { Checkbox } from '@mantine/core';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
 import { IconEye, IconGauge, IconSearch, IconShoppingCart } from '@tabler/icons-react';
 import { Breadcrumbs, Anchor, Text, NavLink, Group, Grid, Title, Image, Pagination, TextInput, Card, ScrollArea, ActionIcon } from '@mantine/core';
+import { PData } from './Pdata';  // Ajusta la ruta según sea necesario
 
 function Catalogo() {
     const isMobile = useMediaQuery('(min-width: 1000px)');
-
-    const imageData = [
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 1',
-            subcategoria: 'Subcategoría 1B'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 2',
-            subcategoria: 'Subcategoría 2A'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 2',
-            subcategoria: 'Subcategoría 2B'
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Titulo',
-            category: 'Categoría 3',
-            subcategoria: 'Subcategoría 3A'
-        },
-    ];
-
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [activePage, setActivePage] = useState(1);
     const imagesPerPage = 18;
-    const totalImages = imageData.length;
+    const totalImages = PData.length;
     const totalPages = Math.ceil(totalImages / imagesPerPage);
-
     const isLargeScreen = useMediaQuery('(min-width: 1000px)');
     const isMediumScreen = useMediaQuery('(min-width: 768px)');
     const isSmallScreen = useMediaQuery('(max-width: 767px)');
-
+    
     const items = [
         { title: 'Inicio', href: '/profierecalanding' },
         { title: 'Catalogo', href: '#' },
@@ -178,20 +43,21 @@ function Catalogo() {
         }
     };
 
-
     const navLinkData = [
-        ...new Set(imageData.map(item => item.category))
+        ...new Set(PData.map(item => item.category))
     ].map(category => ({
         label: category,
         icon: <IconGauge size={16} stroke={1.5} />,
-        subtexts: imageData.filter(item => item.category === category).map(item => item.subcategoria)
+        subtexts: [
+            ...new Set(PData.filter(item => item.category === category).map(item => item.subcategoria))
+        ]
     }));
 
     const handleNavLinkClick = (index: number) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
-    const currentImages = imageData.slice(
+    const currentImages = PData.slice(
         (activePage - 1) * imagesPerPage,
         activePage * imagesPerPage
     );
@@ -218,7 +84,9 @@ function Catalogo() {
                                 opened={activeIndex === index}
                             >
                                 {navItem.subtexts.map((subtext, subIndex) => (
-                                    <NavLink key={subIndex} label={subtext} />
+                                    <div key={subIndex}>
+                                        <Checkbox label={subtext} color="red" />
+                                    </div>
                                 ))}
                             </NavLink>
                         ))}
@@ -280,7 +148,6 @@ function Catalogo() {
                                                             padding: '0 10px',
                                                         }}
                                                     >
-
                                                         <ActionIcon >
                                                             <IconEye color="red" size={34} />
                                                         </ActionIcon>
@@ -292,7 +159,7 @@ function Catalogo() {
 
                                                     {data.src && (
                                                         <Image
-                                                            src='https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg'
+                                                            src={data.src}
                                                             alt={data.title}
                                                             fit="contain"
                                                             style={{
@@ -308,10 +175,7 @@ function Catalogo() {
 
                                                 <Title order={4}>{data.title}</Title>
                                             </Card>
-
-
                                         </motion.div>
-
                                     </Grid.Col>
                                 ))}
                             </Grid>
