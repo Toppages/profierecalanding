@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useMediaQuery } from '@mantine/hooks';
 import { Drawer as MantineDrawer, Burger, Text, Container } from '@mantine/core';
@@ -6,8 +6,9 @@ import { Drawer as MantineDrawer, Burger, Text, Container } from '@mantine/core'
 function Drawer() {
     const [opened, setOpened] = useState(false);
     const isMobile = useMediaQuery('(min-width: 1000px)');
-
+    const location = useLocation();
     const closeDrawer = () => setOpened(false);
+    const isActive = (path: string): string => location.pathname === path ? 'red' : 'black';
 
     return (
         <>
@@ -35,7 +36,7 @@ function Drawer() {
                             style={{ textDecoration: 'none', outline: 'none' }}
                             onClick={closeDrawer}
                         >
-                            <Text c='black' mr={15} fw={700}>
+                            <Text c={isActive('/profierecalanding/Catalogo')} mr={15} fw={700}>
                                 Catalogo
                             </Text>
                         </Link>
@@ -44,18 +45,28 @@ function Drawer() {
                             style={{ textDecoration: 'none', outline: 'none' }}
                             onClick={closeDrawer}
                         >
-                            <Text c='black' mt={15} fw={700}>
+                            <Text c={isActive('/profierecalanding/Nosotros')} mt={15} fw={700}>
                                 Nuestra empresa
-
                             </Text>
                         </Link>
-                        <Text c='black' mt={15} fw={700}>
-                            Contactanos
-
-                        </Text>
-                        <Text c='black' mt={15} fw={700}>
-                            Servicios
-                        </Text>
+                        <Link
+                            to="/profierecalanding/contacto"
+                            style={{ textDecoration: 'none', outline: 'none' }}
+                            onClick={closeDrawer}
+                        >
+                            <Text c={isActive('/profierecalanding/contacto')} mt={15} fw={700}>
+                                Contactanos
+                            </Text>
+                        </Link>
+                        <Link
+                            to="/profierecalanding/Servicio"
+                            style={{ textDecoration: 'none', outline: 'none' }}
+                            onClick={closeDrawer}
+                        >
+                            <Text c={isActive('/profierecalanding/Servicio')} mt={15} fw={700}>
+                                Servicios
+                            </Text>
+                        </Link>
                     </div>
                 </Container>
             </MantineDrawer>
