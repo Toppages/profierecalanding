@@ -1,37 +1,142 @@
 import { useState } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
-import { IconGauge, IconSearch } from '@tabler/icons-react';
-import { Breadcrumbs, Anchor, Text, NavLink, Group, Grid, Title, Image, Pagination, TextInput, Card } from '@mantine/core';
+import { IconEye, IconGauge, IconSearch , IconShoppingCart } from '@tabler/icons-react';
+import { Breadcrumbs, Anchor, Text, NavLink, Group, Grid, Title, Image, Pagination, TextInput, Card, ScrollArea, ActionIcon } from '@mantine/core';
+import { motion } from 'framer-motion';
 
 function Catalogo() {
+    const isMobile = useMediaQuery('(min-width: 1000px)');
+
     const imageData = [
         {
             src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Imagen A',
+            title: 'Titulo',
             category: 'Categoría 1',
             subcategoria: 'Subcategoría 1A'
         },
         {
             src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Imagen B',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
+            category: 'Categoría 1',
+            subcategoria: 'Subcategoría 1A'
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Titulo',
             category: 'Categoría 1',
             subcategoria: 'Subcategoría 1B'
         },
         {
             src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Imagen C',
+            title: 'Titulo',
             category: 'Categoría 2',
             subcategoria: 'Subcategoría 2A'
         },
         {
             src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Imagen D',
+            title: 'Titulo',
             category: 'Categoría 2',
             subcategoria: 'Subcategoría 2B'
         },
         {
             src: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'Imagen E',
+            title: 'Titulo',
             category: 'Categoría 3',
             subcategoria: 'Subcategoría 3A'
         },
@@ -57,6 +162,22 @@ function Catalogo() {
             </Text>
         </Anchor>
     ));
+
+    const cardVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+        hover: {
+            scale: 1.05,
+            boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
+            transition: { duration: 0.3 } // Puedes ajustar esta duración a lo que desees
+        },
+        rest: {
+            scale: 1,
+            boxShadow: "none",
+            transition: { duration: 0.3 }
+        }
+    };
+
 
     const navLinkData = [
         ...new Set(imageData.map(item => item.category))
@@ -84,6 +205,7 @@ function Catalogo() {
                         {navLinkData.map((navItem, index) => (
                             <NavLink
                                 key={index}
+                                mt={15}
                                 label={navItem.label}
                                 icon={navItem.icon}
                                 childrenOffset={28}
@@ -103,7 +225,14 @@ function Catalogo() {
                     </div>
                 )}
                 <div style={{ flex: 2 }}>
-                    <Group style={{ marginBottom: '1rem' }}>
+                    <Group
+                        mr={isMobile ? 10 : 0}
+                        ml={isMobile ? 25 : 0}
+                        position={isMobile ? 'apart' : 'center'}
+                        style={{
+                            marginBottom: '1rem',
+                        }}
+                    >
                         <Pagination
                             total={totalPages}
                             color="red"
@@ -115,43 +244,78 @@ function Catalogo() {
                         <TextInput
                             placeholder="Buscar...."
                             radius="lg"
-                            width="50%"
                             size="lg"
                             mr={15}
                             icon={<IconSearch size={14} />}
                         />
                     </Group>
 
-                    <div style={{ overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Grid gutter="lg" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-                            {currentImages.map((data, index) => (
-                                <Grid.Col
-                                    key={index}
-                                    span={isLargeScreen ? 2 : isMediumScreen ? 3 : isSmallScreen ? 6 : 12}
-                                    style={{ textAlign: 'center' }}
-                                >
-                                    <Card>
-                                        {data.src && (
-                                            <Image
-                                                src={data.src.endsWith('.webp') ? data.src : `${data.src}.webp`}
-                                                alt={data.title}
-                                                radius="md"
-                                                style={{
-                                                    width: isSmallScreen ? '90%' : '100%',
-                                                    height: 'auto',
-                                                    maxWidth: '100%',
-                                                    margin: '0 auto',
-                                                }}
-                                            />
-                                        )}
+                    <ScrollArea style={{ height: 1250 }} type="never">
+                        <div style={{ overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <Grid mt={10} mb={100} gutter="lg" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                                {currentImages.map((data, index) => (
+                                    <Grid.Col
+                                        key={index}
+                                        span={isLargeScreen ? 2 : isMediumScreen ? 3 : isSmallScreen ? 6 : 12}
+                                        style={{ textAlign: 'center' }}
+                                    >
+                                        <motion.div
+                                            initial="hidden"
+                                            animate="visible"
+                                            whileHover="hover"
+                                            exit="rest"
+                                            variants={cardVariants}
+                                            transition={{ duration: 0.3 }}
+                                        >
+                                            <Card mb={5} shadow="xl" p="lg" radius="md" style={{ position: 'relative' }}>
+                                                <Card.Section>
+                                                    <Group
+                                                        style={{
+                                                            position: 'absolute',
+                                                            top: '10px',
+                                                            left: '0',
+                                                            right: '0',
+                                                            zIndex: 1,
+                                                            justifyContent: 'space-between',
+                                                            padding: '0 10px',
+                                                        }}
+                                                    >
 
-                                        <Title order={4}>{data.title}</Title>
-                                        <Text>{data.category}</Text>
-                                    </Card>
-                                </Grid.Col>
-                            ))}
-                        </Grid>
-                    </div>
+                                                        <ActionIcon color="red">
+                                                            <IconEye size={26} />
+                                                        </ActionIcon>
+
+                                                        <ActionIcon color="red">
+                                                            <IconShoppingCart size={26} />
+                                                        </ActionIcon>
+                                                    </Group>
+
+                                                    {data.src && (
+                                                        <Image
+                                                            src='https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg'
+                                                            alt={data.title}
+                                                            style={{
+                                                                width: '100%',
+                                                                height: 'auto',
+                                                                objectFit: 'cover',  // Asegura que la imagen cubra todo el contenedor sin deformarse
+                                                                maxWidth: '100%',
+                                                                margin: '0 auto',
+                                                            }}
+                                                        />
+                                                    )}
+                                                </Card.Section>
+
+                                                <Title order={4}>{data.title}</Title>
+                                            </Card>
+
+
+                                        </motion.div>
+
+                                    </Grid.Col>
+                                ))}
+                            </Grid>
+                        </div>
+                    </ScrollArea>
                 </div>
             </Group>
         </>

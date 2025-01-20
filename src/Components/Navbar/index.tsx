@@ -60,7 +60,7 @@ function Navbar() {
                                                 whileHover={{ color: 'red' }}
                                                 transition={{ duration: 0 }}
                                             >
-                                                Texto
+                                                Catalogo
                                             </Text>
                                         </motion.div>
                                     </HoverCard.Target>
@@ -76,7 +76,7 @@ function Navbar() {
                                             <Card radius="md">
                                                 <Link to="/profierecalanding/Catalogo" style={{ textDecoration: 'none', outline: 'none' }}>
                                                     <Text c='black' mr={15} fw={700}>
-                                                        Texto
+                                                        Productos
                                                     </Text>
                                                 </Link>
                                             </Card>

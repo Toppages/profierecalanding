@@ -30,13 +30,13 @@ function Drawer() {
             >
                 <Container mt={15} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <div>
-                        <Link 
-                            to="/profierecalanding/Catalogo" 
+                        <Link
+                            to="/profierecalanding/Catalogo"
                             style={{ textDecoration: 'none', outline: 'none' }}
                             onClick={closeDrawer}
                         >
                             <Text c='black' mr={15} fw={700}>
-                                Texto
+                            Catalogo
                             </Text>
                         </Link>
                         <Text mt={15} fw={700}>

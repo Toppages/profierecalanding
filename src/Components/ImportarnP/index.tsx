@@ -2,7 +2,7 @@ import { Carousel, Embla } from '@mantine/carousel';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useState } from "react";
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
-import { Card, Image, Divider, Title, ActionIcon } from '@mantine/core';
+import { Card, Image, Divider, Title, ActionIcon, Group } from '@mantine/core';
 
 
 function ImportarnP() {
@@ -39,7 +39,10 @@ function ImportarnP() {
 
     return (
         <>
-            <Title ta='center' mt='5%' mb='5%' mr={15} order={1}>Productos Destacados</Title>
+            <Group position='center'>
+
+                <Title mt='5%' mb='2%' order={1}>Productos Destacados</Title>
+            </Group>
             <Divider my="sm" mx='sm' />
 
 
@@ -50,9 +53,9 @@ function ImportarnP() {
             >
                 <Carousel
                     dragFree
-                    
-                mt={45}
-                mb={45}
+
+                    mt={45}
+                    mb={45}
                     slideSize="20%"
                     slideGap={5}
                     mr="2%"
