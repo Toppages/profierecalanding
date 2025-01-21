@@ -1,29 +1,40 @@
-import { Image } from '@mantine/core';
-import bannerc from '../../assets/SERVICIO COMERCIAL WEB.png'
-import banneri from '../../assets/SERVICIO INDUSTRAL WEB.png'
-import bannerr from '../../assets/SERVICIO RESIDENCIAL WEB.png'
+import bannerc from '../../assets/SERVICIO COMERCIAL WEB.png';
+import banneri from '../../assets/SERVICIO INDUSTRAL WEB.png';
+import bannerr from '../../assets/SERVICIO RESIDENCIAL WEB.png';
 
 function AboutBanner() {
-
     return (
         <>
-
-            <Image
-                mb={20}
-                fit="contain"
+            <img
                 src={bannerc}
+                alt="Servicio Comercial"
+                style={{
+                    marginBottom: 20,
+                    objectFit: 'contain',
+                    width: '100%',
+                    height: 'auto'
+                }}
             />
-            <Image
-                mb={20}
-                fit="contain"
+            <img
                 src={bannerr}
+                alt="Servicio Residencial"
+                style={{
+                    marginBottom: 20,
+                    objectFit: 'contain',
+                    width: '100%',
+                    height: 'auto'
+                }}
             />
-            <Image
-                mb={20}
-                fit="contain"
+            <img
                 src={banneri}
+                alt="Servicio Industrial"
+                style={{
+                    marginBottom: 20,
+                    objectFit: 'contain',
+                    width: '100%',
+                    height: 'auto'
+                }}
             />
-
         </>
     );
 }

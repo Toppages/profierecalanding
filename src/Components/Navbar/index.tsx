@@ -1,11 +1,11 @@
+import Logo from '../../assets/PROFIRECA Negro.png'
 import Drawer from '../Drawer';
-import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useMediaQuery } from '@mantine/hooks';
-import Logo from '../../assets/PROFIRECA.png'
-import { IconBrandInstagram, IconShoppingCart, IconBrandWhatsapp, IconBrandFacebook } from '@tabler/icons-react';
-import { Card, Text, Group, HoverCard, Divider, ActionIcon, Title, Indicator ,Image} from '@mantine/core';
 import { useCart } from '../../CartContext';
+import { useMediaQuery } from '@mantine/hooks';
+import { Link, useLocation } from 'react-router-dom';
+import { IconBrandInstagram, IconShoppingCart, IconBrandWhatsapp, IconBrandFacebook } from '@tabler/icons-react';
+import { Card, Text, Group, HoverCard, Divider, ActionIcon, Indicator, Image } from '@mantine/core';
 
 function Navbar() {
     const isMobile = useMediaQuery('(min-width: 1000px)');
@@ -18,7 +18,15 @@ function Navbar() {
             <div style={{ width: '100%' }}>
                 <Drawer />
                 <Group position={isMobile ? "apart" : "center"} style={{ flexDirection: isMobile ? "row" : "column", width: "100%" }}>
-                    <Title style={{ display: isMobile ? "none" : "flex" }} ml={15} order={1} align={isMobile ? "left" : "center"}>Logo</Title>
+
+
+
+                                <Image
+                                    width="200px"
+                                     style={{ display: isMobile ? "none" : "flex" }}
+                                    height="130px"
+                                    src={Logo}
+                                />
 
                     {isMobile && (
                         <>
@@ -97,14 +105,11 @@ function Navbar() {
                                     </HoverCard.Dropdown>
                                 </HoverCard>
 
-                                    <Image
-        width={200}
-        height={80}
-        fit="contain"
-        src={Logo   }
-      />
-
-
+                                <Image
+                                    width="200px"
+                                    height="130px"
+                                    src={Logo}
+                                />
 
                                 <HoverCard width={320} radius="lg" shadow="md" openDelay={250}>
                                     <HoverCard.Target>
@@ -195,21 +200,26 @@ function Navbar() {
                         </ActionIcon>
                         {cart.length > 0 ? (
                             <Indicator label={cart.length} withBorder showZero={false} inline color="red" overflowCount={999} size={20}>
+                                <Link to="/profierecalanding/Cart">
+                                    <ActionIcon mr={8} radius="xl">
+                                        <IconShoppingCart color="red" size={34} />
+                                    </ActionIcon>
+                                </Link>
+                            </Indicator>
+                        ) : (
+                            <Link to="/profierecalanding/Cart">
                                 <ActionIcon mr={8} radius="xl">
                                     <IconShoppingCart color="red" size={34} />
                                 </ActionIcon>
-                            </Indicator>
-                        ) : (
-                            <ActionIcon mr={8} radius="xl">
-                                <IconShoppingCart color="red" size={34} />
-                            </ActionIcon>
+                            </Link>
+
                         )}
                     </Group>
 
 
 
                 </Group>
-                <Divider my="sm" mx='sm' />
+                <Divider mx='sm' />
             </div>
         </>
     );

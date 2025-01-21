@@ -69,10 +69,10 @@ function ImportarnP() {
             >
                 <Carousel
                     dragFree
-                    mt={45}
-                    mb={45}
                     slideSize="20%"
                     slideGap={5}
+                    mt={45}
+                    mb={45}
                     mr="2%"
                     ml="2%"
                     height="auto"
@@ -85,7 +85,7 @@ function ImportarnP() {
                         { maxWidth: 'xs', slideSize: '100%', slideGap: 10 },
                     ]}
                     loop
-                    align="start"
+                    align="center"
                 >
                     {cards.map((card, index) => (
                         <Carousel.Slide key={index}>
@@ -95,23 +95,22 @@ function ImportarnP() {
                                 transition={{ duration: 0.5 }}
                             >
                                 <Card mr={10} p="lg" radius="lg">
-                                    <Card.Section>
-                                        <Image
-                                            src={card.image}
-                                            alt={card.title}
-                                            fit="contain"
-                                            radius="md"
-                                            width="95%"
-                                            height="100%"
-                                            style={{ objectFit: 'contain', maxHeight: '850px' }}
-                                        />
-                                    </Card.Section>
+                                    <Image
+                                        src={card.image}
+                                        alt={card.title}
+                                        fit="contain"
+                                        radius="md"
+                                        width="100%"
+                                        height="100%"
+                                        style={{ objectFit: 'contain', maxHeight: '650px' }}
+                                    />
                                     <Title ta="center" order={4}>{card.title}</Title>
                                 </Card>
                             </motion.div>
                         </Carousel.Slide>
                     ))}
                 </Carousel>
+
 
                 <div style={{
                     position: 'absolute',

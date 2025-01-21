@@ -6,6 +6,7 @@ import Navbar from './Components/Navbar';
 import Contact from './Pages/Contact';
 import Servicie from './Pages/Servicie/Index';
 import Catalogo from './Pages/Productos';
+import Cart from './Pages/Cart/Index';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ActionIcon } from '@mantine/core';
 import { IconBrandWhatsapp } from '@tabler/icons-react';
@@ -24,6 +25,7 @@ function App() {
               <Route path="/profierecalanding/Nosotros" element={<About />} />
               <Route path="/profierecalanding/Contacto" element={<Contact />} />
               <Route path="/profierecalanding/Servicio" element={<Servicie />} />
+              <Route path="/profierecalanding/Cart" element={<Cart />} />
               <Route path="*" element={<Home />} />
             </Routes>
           </main>

@@ -88,7 +88,7 @@ function Catalogo() {
     return (
         <>
             <Breadcrumbs mt={10} ml={15}>{items}</Breadcrumbs>
-                                <Text style={{ display: 'none' }}>Items in cart: {cart.length}</Text>
+            <Text style={{ display: 'none' }}>Items in cart: {cart.length}</Text>
             <Drawer
                 opened={drawerOpened}
                 onClose={() => setDrawerOpened(false)}
@@ -127,11 +127,10 @@ function Catalogo() {
 
             <Group align="start" style={{ width: '100%' }} spacing={isSmallScreen ? 'xs' : 'lg'}>
                 {isLargeScreen && (
-                    <div style={{ flex: 1, maxWidth: '150px' }}>
+                    <div style={{ flex: 1, maxWidth: '200px' }}>
                         {navLinkData.map((navItem, index) => (
                             <NavLink
                                 key={index}
-                                mt={15}
                                 label={navItem.label}
                                 icon={navItem.icon}
                                 childrenOffset={28}
@@ -146,6 +145,7 @@ function Catalogo() {
                                 {navItem.subtexts.map((subtext, subIndex) => (
                                     <div key={subIndex}>
                                         <Checkbox
+                                            mt={5}
                                             label={subtext}
                                             color="red"
                                             checked={selectedFilters.includes(subtext)}
@@ -208,7 +208,7 @@ function Catalogo() {
                                             variants={cardVariants}
                                             transition={{ duration: 0.3 }}
                                         >
-                                            <Card mb={5} shadow="xl" p="lg" radius="md" style={{ position: 'relative' }}>
+                                            <Card mb={5} shadow="xl" p="lg" radius="md" style={{ position: 'relative', width: '100%', maxWidth: '400px' }}>
                                                 <Card.Section>
                                                     <Group
                                                         style={{
@@ -243,8 +243,16 @@ function Catalogo() {
                                                     )}
                                                 </Card.Section>
 
-                                                <Title order={4}>{data.title}</Title>
+                                                <Title order={6} style={{
+                                                    whiteSpace: 'nowrap',
+                                                    overflow: 'hidden',
+                                                    textOverflow: 'ellipsis',
+                                                    maxWidth: '100%',
+                                                }}>
+                                                    {data.title}
+                                                </Title>
                                             </Card>
+
                                         </motion.div>
                                     </Grid.Col>
                                 ))

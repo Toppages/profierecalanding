@@ -8,7 +8,13 @@ function Drawer() {
     const isMobile = useMediaQuery('(min-width: 1000px)');
     const location = useLocation();
     const closeDrawer = () => setOpened(false);
-    const isActive = (path: string): string => location.pathname === path ? 'red' : 'black';
+
+    const getLinkStyle = (path: string) => ({
+        color: location.pathname === path ? 'red' : 'black',
+        borderBottom: location.pathname === path ? '2px solid red' : 'none',
+        textDecoration: 'none',
+        outline: 'none'
+    });
 
     return (
         <>
@@ -29,41 +35,41 @@ function Drawer() {
                 overlayOpacity={0.55}
                 overlayBlur={3}
             >
-                <Container mt={15} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Container mt={15} style={{ display: 'flex'}}>
                     <div>
                         <Link
                             to="/profierecalanding/Catalogo"
-                            style={{ textDecoration: 'none', outline: 'none' }}
+                            style={getLinkStyle('/profierecalanding/Catalogo')}
                             onClick={closeDrawer}
                         >
-                            <Text c={isActive('/profierecalanding/Catalogo')} mr={15} fw={700}>
+                            <Text mr={15} fw={700}>
                                 Catalogo
                             </Text>
                         </Link>
                         <Link
                             to="/profierecalanding/Nosotros"
-                            style={{ textDecoration: 'none', outline: 'none' }}
+                            style={getLinkStyle('/profierecalanding/Nosotros')}
                             onClick={closeDrawer}
                         >
-                            <Text c={isActive('/profierecalanding/Nosotros')} mt={15} fw={700}>
+                            <Text mt={15} fw={700}>
                                 Nuestra empresa
                             </Text>
                         </Link>
                         <Link
                             to="/profierecalanding/contacto"
-                            style={{ textDecoration: 'none', outline: 'none' }}
+                            style={getLinkStyle('/profierecalanding/contacto')}
                             onClick={closeDrawer}
                         >
-                            <Text c={isActive('/profierecalanding/contacto')} mt={15} fw={700}>
+                            <Text mt={15} fw={700}>
                                 Contactanos
                             </Text>
                         </Link>
                         <Link
                             to="/profierecalanding/Servicio"
-                            style={{ textDecoration: 'none', outline: 'none' }}
+                            style={getLinkStyle('/profierecalanding/Servicio')}
                             onClick={closeDrawer}
                         >
-                            <Text c={isActive('/profierecalanding/Servicio')} mt={15} fw={700}>
+                            <Text mt={15} fw={700}>
                                 Servicios
                             </Text>
                         </Link>

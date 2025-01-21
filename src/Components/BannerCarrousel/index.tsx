@@ -1,6 +1,6 @@
 import { Carousel } from "@mantine/carousel";
 import { Image } from '@mantine/core';
-import Banner1 from '../../assets/BANNER PROFIRECA WEB 1 v2.png';
+import Banner1 from '../../assets/BANNER PROFIRECA WEB 1.png';
 import Banner2 from '../../assets/BANNER PROFIRECA WEB 2.png';
 import Banner3 from '../../assets/BANNER PROFIRECA WEB 3.png';
 
@@ -33,7 +33,7 @@ function BannerCarrousel() {
                         alt="With default placeholder"
                         withPlaceholder
                         className="carousel-image"
-                        style={{ objectPosition: 'center' }}
+                        style={{ objectPosition: 'center' }} 
                     />
                 </Carousel.Slide>
                 <Carousel.Slide>

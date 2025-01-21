@@ -18,7 +18,6 @@ export const PData = [
     { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'PELIGRO COMBUSTIBLE', category: 'señalizaciones', subcategoria: 'Señales de peligro' },
     { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'VIA DE ESCAPE IZQUIERDO', category: 'señalizaciones', subcategoria: 'Señales de escape' },
     { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'VIA DE ESCAPE DERECHO', category: 'señalizaciones', subcategoria: 'Señales de escape' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'VALVULA M-30 AVERIADA', category: 'Accesorios y repuestos', subcategoria: 'Válvulas averiadas' },
     { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'MANGUERA M30 ROSCA GRUESA', category: 'Accesorios y repuestos', subcategoria: 'Mangueras' },
     { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'CARRETA PQS 100 LBS PRESION INDIRECTA', category: 'Equipos industriales', subcategoria: 'Carretas industriales' },
     { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'SALIDA DE EMERGENCIA', category: 'señalizaciones', subcategoria: 'Señales de emergencia' },
