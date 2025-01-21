@@ -60,7 +60,7 @@ function Catalogo() {
 
     const handleAddToCart = (item: any) => {
         addToCart(item);
-      };
+    };
 
     const currentImages = PData.slice(
         (activePage - 1) * imagesPerPage,
@@ -161,6 +161,8 @@ function Catalogo() {
                             />
                         </Group>
                     </Group>
+
+                    <Text style={{ display: 'none' }}>Items in cart: {cart.length}</Text>
 
                     <ScrollArea style={{ height: 1250 }} type="never">
                         <div style={{ overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
