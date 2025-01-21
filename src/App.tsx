@@ -1,11 +1,11 @@
 import './App.css';
-import Navbar from './Components/Navbar';
 import Home from './Home';
-import Footer from './Components/Footer/Index';
-import Catalogo from './Pages/Productos';
-import Contact from './Pages/Contact';
 import About from './Pages/About';
+import Footer from './Components/Footer/Index';
+import Navbar from './Components/Navbar';
+import Contact from './Pages/Contact';
 import Servicie from './Pages/Servicie/Index';
+import Catalogo from './Pages/Productos';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ActionIcon } from '@mantine/core';
 import { IconBrandWhatsapp } from '@tabler/icons-react';

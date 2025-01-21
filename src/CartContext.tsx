@@ -9,7 +9,6 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<any[]>(() => {
-    // Obtener el carrito desde localStorage al iniciar
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart) : [];
   });
@@ -17,14 +16,12 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const addToCart = (item: any) => {
     setCart((prevCart) => {
       const newCart = [...prevCart, item];
-      // Guardar el carrito actualizado en localStorage
       localStorage.setItem('cart', JSON.stringify(newCart));
       return newCart;
     });
   };
 
   useEffect(() => {
-    // Sincronizar el carrito con localStorage cada vez que cambie
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 

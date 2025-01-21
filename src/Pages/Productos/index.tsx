@@ -1,23 +1,25 @@
-import { PData } from './Pdata';
+import ProductsU from '../../Components/ProductsU/Index';
+import { PData } from '../../Data/Pdata';
 import { motion } from 'framer-motion';
+import { useCart } from '../../CartContext';
 import { useState } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
-import { IconEye, IconGauge, IconFilter, IconSearch, IconShoppingCart } from '@tabler/icons-react';
-import { Breadcrumbs, Anchor, Checkbox, Text, NavLink, Group, Grid, Title, Image, Pagination, TextInput, Card, ScrollArea, ActionIcon, Drawer } from '@mantine/core';
-import { useCart } from '../../CartContext';
+import { IconGauge, IconFilter, IconSearch, IconShoppingCart } from '@tabler/icons-react';
+import { Breadcrumbs, Anchor, Text, NavLink, Group, Grid, Title, Image, Pagination, Checkbox, TextInput, Card, ScrollArea, ActionIcon, Drawer } from '@mantine/core';
 
 function Catalogo() {
     const isMobile = useMediaQuery('(min-width: 1000px)');
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [activePage, setActivePage] = useState(1);
     const { cart, addToCart } = useCart();
+    const [filterText, setFilterText] = useState('');
+    const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
     const imagesPerPage = 18;
-    const totalImages = PData.length;
-    const totalPages = Math.ceil(totalImages / imagesPerPage);
     const isLargeScreen = useMediaQuery('(min-width: 1000px)');
     const isMediumScreen = useMediaQuery('(min-width: 768px)');
     const isSmallScreen = useMediaQuery('(max-width: 767px)');
-    const [opened, setOpened] = useState(false);
+    const [drawerOpened, setDrawerOpened] = useState(false);
+
     const items = [
         { title: 'Inicio', href: '/profierecalanding' },
         { title: 'Catalogo', href: '#' },
@@ -28,6 +30,31 @@ function Catalogo() {
             </Text>
         </Anchor>
     ));
+
+    const handleAddToCart = (item: any) => {
+        addToCart(item);
+    };
+
+    const handleCheckboxChange = (subtext: string) => {
+        setSelectedFilters((prev) =>
+            prev.includes(subtext)
+                ? prev.filter((filter) => filter !== subtext)
+                : [...prev, subtext]
+        );
+    };
+
+    const filteredImages = PData.filter(image =>
+        image.title.toLowerCase().includes(filterText.toLowerCase()) &&
+        (selectedFilters.length === 0 || selectedFilters.includes(image.subcategoria))
+    );
+
+    const totalFilteredImages = filteredImages.length;
+    const totalPages = Math.max(1, Math.ceil(totalFilteredImages / imagesPerPage));
+
+    const currentImages = filteredImages.slice(
+        (activePage - 1) * imagesPerPage,
+        activePage * imagesPerPage
+    );
 
     const cardVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -58,25 +85,16 @@ function Catalogo() {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
-    const handleAddToCart = (item: any) => {
-        addToCart(item);
-    };
-
-    const currentImages = PData.slice(
-        (activePage - 1) * imagesPerPage,
-        activePage * imagesPerPage
-    );
-
     return (
         <>
             <Breadcrumbs mt={10} ml={15}>{items}</Breadcrumbs>
+                                <Text style={{ display: 'none' }}>Items in cart: {cart.length}</Text>
             <Drawer
-                opened={opened}
-                onClose={() => setOpened(false)}
+                opened={drawerOpened}
+                onClose={() => setDrawerOpened(false)}
                 padding="xl"
                 size="xl"
             >
-
                 {navLinkData.map((navItem, index) => (
                     <NavLink
                         key={index}
@@ -94,14 +112,19 @@ function Catalogo() {
                     >
                         {navItem.subtexts.map((subtext, subIndex) => (
                             <div key={subIndex}>
-                                <Checkbox mt={8} label={subtext} color="red" />
+                                <Checkbox
+                                    mt={8}
+                                    label={subtext}
+                                    color="red"
+                                    checked={selectedFilters.includes(subtext)}
+                                    onChange={() => handleCheckboxChange(subtext)}
+                                />
                             </div>
                         ))}
                     </NavLink>
                 ))}
-
-
             </Drawer>
+
             <Group align="start" style={{ width: '100%' }} spacing={isSmallScreen ? 'xs' : 'lg'}>
                 {isLargeScreen && (
                     <div style={{ flex: 1, maxWidth: '150px' }}>
@@ -122,7 +145,12 @@ function Catalogo() {
                             >
                                 {navItem.subtexts.map((subtext, subIndex) => (
                                     <div key={subIndex}>
-                                        <Checkbox label={subtext} color="red" />
+                                        <Checkbox
+                                            label={subtext}
+                                            color="red"
+                                            checked={selectedFilters.includes(subtext)}
+                                            onChange={() => handleCheckboxChange(subtext)}
+                                        />
                                     </div>
                                 ))}
                             </NavLink>
@@ -148,8 +176,7 @@ function Catalogo() {
                             onChange={setActivePage}
                         />
                         <Group>
-
-                            <ActionIcon onClick={() => setOpened(true)} color="red" size="xl" radius='md' variant="filled" style={{ display: isMobile ? "none" : "flex" }}>
+                            <ActionIcon onClick={() => setDrawerOpened(true)} color="red" size="xl" radius='md' variant="filled" style={{ display: isMobile ? "none" : "flex" }}>
                                 <IconFilter size={34} />
                             </ActionIcon>
                             <TextInput
@@ -158,16 +185,16 @@ function Catalogo() {
                                 size="lg"
                                 mr={isMobile ? 20 : 0}
                                 icon={<IconSearch size={14} />}
+                                value={filterText}
+                                onChange={(e) => setFilterText(e.currentTarget.value)}
                             />
                         </Group>
                     </Group>
 
-                    <Text style={{ display: 'none' }}>Items in cart: {cart.length}</Text>
-
                     <ScrollArea style={{ height: 1250 }} type="never">
-                        <div style={{ overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <Grid mt={10} mb={100} gutter="lg" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-                                {currentImages.map((data, index) => (
+                        <Grid mt={10} mb={100} gutter="lg" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                            {currentImages.length > 0 ? (
+                                currentImages.map((data, index) => (
                                     <Grid.Col
                                         key={index}
                                         span={isLargeScreen ? 2 : isMediumScreen ? 3 : isSmallScreen ? 6 : 12}
@@ -194,10 +221,7 @@ function Catalogo() {
                                                             padding: '0 10px',
                                                         }}
                                                     >
-                                                        <ActionIcon >
-                                                            <IconEye color="red" size={34} />
-                                                        </ActionIcon>
-
+                                                        <ProductsU product={data} />
                                                         <ActionIcon radius="xl" onClick={() => handleAddToCart(data)}>
                                                             <IconShoppingCart color="red" size={34} />
                                                         </ActionIcon>
@@ -223,9 +247,11 @@ function Catalogo() {
                                             </Card>
                                         </motion.div>
                                     </Grid.Col>
-                                ))}
-                            </Grid>
-                        </div>
+                                ))
+                            ) : (
+                                <Text>No disponible</Text>
+                            )}
+                        </Grid>
                     </ScrollArea>
                 </div>
             </Group>

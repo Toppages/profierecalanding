@@ -2,8 +2,9 @@ import Drawer from '../Drawer';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useMediaQuery } from '@mantine/hooks';
-import { Card, Text, Group, HoverCard, Divider, ActionIcon, Title, Indicator } from '@mantine/core';
+import Logo from '../../assets/PROFIRECA.png'
 import { IconBrandInstagram, IconShoppingCart, IconBrandWhatsapp, IconBrandFacebook } from '@tabler/icons-react';
+import { Card, Text, Group, HoverCard, Divider, ActionIcon, Title, Indicator ,Image} from '@mantine/core';
 import { useCart } from '../../CartContext';
 
 function Navbar() {
@@ -96,7 +97,14 @@ function Navbar() {
                                     </HoverCard.Dropdown>
                                 </HoverCard>
 
-                                <Title ml={15} mr={15} order={1} align={isMobile ? "left" : "center"}>Logo</Title>
+                                    <Image
+        width={200}
+        height={80}
+        fit="contain"
+        src={Logo   }
+      />
+
+
 
                                 <HoverCard width={320} radius="lg" shadow="md" openDelay={250}>
                                     <HoverCard.Target>
@@ -127,7 +135,7 @@ function Navbar() {
                                             <Card radius="md">
                                                 <Link to="/profierecalanding/contacto" style={{ textDecoration: 'none', outline: 'none' }}>
                                                     <Text c='black' mr={15} fw={700}>
-                                                    Contactanos
+                                                        Contactanos
                                                     </Text>
                                                 </Link>
                                             </Card>
@@ -175,28 +183,28 @@ function Navbar() {
                         </>
                     )}
 
-<Group align='end' mr={15} spacing="lg" position={isMobile ? "apart" : "center"}>
-    <ActionIcon radius="xl">
-        <IconBrandInstagram color="red" size={34} />
-    </ActionIcon>
-    <ActionIcon radius="xl">
-        <IconBrandWhatsapp color="red" size={34} />
-    </ActionIcon>
-    <ActionIcon radius="xl">
-        <IconBrandFacebook color="red" size={34} />
-    </ActionIcon>
-    {cart.length > 0 ? (
-        <Indicator label={cart.length} withBorder showZero={false} inline color="red" overflowCount={999} size={20}>
-            <ActionIcon mr={8} radius="xl">
-                <IconShoppingCart color="red" size={34} />
-            </ActionIcon>
-        </Indicator>
-    ) : (
-        <ActionIcon mr={8} radius="xl">
-            <IconShoppingCart color="red" size={34} />
-        </ActionIcon>
-    )}
-</Group>
+                    <Group align='end' mr={15} spacing="lg" position={isMobile ? "apart" : "center"}>
+                        <ActionIcon radius="xl">
+                            <IconBrandInstagram color="red" size={34} />
+                        </ActionIcon>
+                        <ActionIcon radius="xl">
+                            <IconBrandWhatsapp color="red" size={34} />
+                        </ActionIcon>
+                        <ActionIcon radius="xl">
+                            <IconBrandFacebook color="red" size={34} />
+                        </ActionIcon>
+                        {cart.length > 0 ? (
+                            <Indicator label={cart.length} withBorder showZero={false} inline color="red" overflowCount={999} size={20}>
+                                <ActionIcon mr={8} radius="xl">
+                                    <IconShoppingCart color="red" size={34} />
+                                </ActionIcon>
+                            </Indicator>
+                        ) : (
+                            <ActionIcon mr={8} radius="xl">
+                                <IconShoppingCart color="red" size={34} />
+                            </ActionIcon>
+                        )}
+                    </Group>
 
 
 
