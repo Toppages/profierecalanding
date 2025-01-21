@@ -3,13 +3,11 @@ import { IconPhone, IconMail, IconPhotoPin, IconBuildingBridge } from "@tabler/i
 import { useForm } from '@mantine/form';
 import { useState } from "react";
 
-
 interface ContactCardProps {
     icon: React.ReactNode;
     title: string;
     text: string;
 }
-
 
 function Contact() {
 const ContactCard = ({ icon, title, text }: ContactCardProps) => (
@@ -109,7 +107,7 @@ const MapEmbed = ({ src }: { src: string }) => (
                         radius={15}
                         mt={15}
                         w="38%"
-                        size="xl"
+                        size="md"
                         placeholder="Nombre"
                         aria-label="Nombre"
                         {...form.getInputProps('name')}
@@ -118,7 +116,7 @@ const MapEmbed = ({ src }: { src: string }) => (
                         radius={15}
                         mt={10}
                         w="30%"
-                        size="xl"
+                        size="md"
                         placeholder="Sucursal"
                         aria-label="Sucursal"
                         data={branches}

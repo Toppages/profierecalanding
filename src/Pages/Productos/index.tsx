@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
 import { IconEye, IconGauge, IconFilter, IconSearch, IconShoppingCart } from '@tabler/icons-react';
 import { Breadcrumbs, Anchor, Checkbox, Text, NavLink, Group, Grid, Title, Image, Pagination, TextInput, Card, ScrollArea, ActionIcon, Drawer } from '@mantine/core';
+import { useCart } from '../../CartContext';
 
 function Catalogo() {
     const isMobile = useMediaQuery('(min-width: 1000px)');
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [activePage, setActivePage] = useState(1);
+    const { cart, addToCart } = useCart();
     const imagesPerPage = 18;
     const totalImages = PData.length;
     const totalPages = Math.ceil(totalImages / imagesPerPage);
@@ -55,6 +57,10 @@ function Catalogo() {
     const handleNavLinkClick = (index: number) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
+
+    const handleAddToCart = (item: any) => {
+        addToCart(item);
+      };
 
     const currentImages = PData.slice(
         (activePage - 1) * imagesPerPage,
@@ -190,7 +196,7 @@ function Catalogo() {
                                                             <IconEye color="red" size={34} />
                                                         </ActionIcon>
 
-                                                        <ActionIcon radius="xl">
+                                                        <ActionIcon radius="xl" onClick={() => handleAddToCart(data)}>
                                                             <IconShoppingCart color="red" size={34} />
                                                         </ActionIcon>
                                                     </Group>
