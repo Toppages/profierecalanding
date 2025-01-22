@@ -56,6 +56,46 @@ function Cart() {
         }
     };
 
+    // const handleSubmit = async (values: typeof form.values) => {
+    //     const selectedBranch = branches.find((branch) => branch.value === values.branch);
+    //     if (selectedBranch) {
+    //         const itemsList = groupedItems.map((item, index) =>
+    //             `${index + 1}. ${item.title} - ${item.quantity} unidades`
+    //         ).join('\n');
+
+    //         const finalMessage = `Hola soy ${values.name}, ${values.message}\n\nQuisiera cotizar los siguientes elementos:\n${itemsList}`;
+
+    //         // Enviar los datos al Webhook de Make
+    //         const payload = {
+    //             name: values.name,
+    //             message: finalMessage,
+    //             phone: selectedBranch.phone,
+    //         };
+
+    //         try {
+    //             // Realizar la solicitud POST al webhook de Make
+    //             const response = await fetch('https://hook.us2.make.com/9ri96jmohh4c1jwlyxpteidfswwqpush', {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //                 body: JSON.stringify(payload),
+    //             });
+
+    //             // Si la solicitud fue exitosa, podemos limpiar el carrito
+    //             if (response.ok) {
+    //                 clearCart();
+    //                 window.location.reload(); // Recargar la página
+    //                 alert("Mensaje enviado con éxito!");
+    //             } else {
+    //                 alert("Hubo un error al enviar el mensaje.");
+    //             }
+    //         } catch (error) {
+    //             console.error("Error al enviar el mensaje:", error);
+    //             alert("Hubo un error al enviar el mensaje.");
+    //         }
+    //     }
+    // };
     const clearCart = () => {
         cart.forEach(item => removeFromCart(item.title));
     };
