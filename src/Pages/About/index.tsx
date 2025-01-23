@@ -1,8 +1,20 @@
-import { Title, Text, Grid, Col, Card, Image } from '@mantine/core';
+import { Title, Text, Grid, Col, Card, Image, Anchor, Breadcrumbs } from '@mantine/core';
 
 function About() {
+  const items = [
+    { title: 'Inicio', href: '/profierecalanding' },
+    { title: 'Nuestra empresa ', href: '#' },
+  ].map((item, index) => (
+    <Anchor c='black' href={item.href} key={index}>
+      <Text c='black' fw={700}>
+        {item.title}
+      </Text>
+    </Anchor>
+  ));
   return (
     <>
+      <Breadcrumbs mt={10} ml={15}>{items}</Breadcrumbs>
+
       <Image mt={5} radius='md' src="https://placehold.co/1920x500?text=1920x500\n\nProfireca\n'lema'" alt="Imagen 1" mb="md" />
 
       <Grid gutter="xl" grow mt="xl" mr={15} ml={15}>
@@ -29,7 +41,7 @@ function About() {
         </Col>
 
         <Col span={12}>
-               <Image mt={10} radius='md' src="https://placehold.co/1920x920?text=1920x920\n\n ¿Por qué nos identificamos?\n'texto'" alt="Imagen 1" mb="md" />
+          <Image mt={10} radius='md' src="https://placehold.co/1920x920?text=1920x920\n\n ¿Por qué nos identificamos?\n'texto'" alt="Imagen 1" mb="md" />
 
         </Col>
 
@@ -85,43 +97,43 @@ function About() {
           </Col>
         </Grid>
       </Grid>
-   <Grid  gutter="xl" grow mt="xl" mr={15} ml={15}>
-      <Grid.Col span={4}>
-        <img
-          src="https://placehold.co/500x300"
-          alt="Imagen 1"
-          style={{ width: '100%', height: 'auto' }}
-        />
-      </Grid.Col>
-      <Grid.Col span={4}>
-        <img
-          src="https://placehold.co/500x300"
-          alt="Imagen 2"
-          style={{ width: '100%', height: 'auto' }}
-        />
-      </Grid.Col>
-      <Grid.Col span={4}>
-        <img
-          src="https://placehold.co/500x300"
-          alt="Imagen 3"
-          style={{ width: '100%', height: 'auto' }}
-        />
-      </Grid.Col>
-      <Grid.Col span={4}>
-        <img
-          src="https://placehold.co/500x300"
-          alt="Imagen 4"
-          style={{ width: '100%', height: 'auto' }}
-        />
-      </Grid.Col>
-      <Grid.Col span={4}>
-        <img
-          src="https://placehold.co/500x300"
-          alt="Imagen 5"
-          style={{ width: '100%', height: 'auto' }}
-        />
-      </Grid.Col>
-    </Grid>
+      <Grid gutter="xl" grow mt="xl" mr={15} ml={15}>
+        <Grid.Col span={4}>
+          <img
+            src="https://placehold.co/500x300"
+            alt="Imagen 1"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </Grid.Col>
+        <Grid.Col span={4}>
+          <img
+            src="https://placehold.co/500x300"
+            alt="Imagen 2"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </Grid.Col>
+        <Grid.Col span={4}>
+          <img
+            src="https://placehold.co/500x300"
+            alt="Imagen 3"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </Grid.Col>
+        <Grid.Col span={4}>
+          <img
+            src="https://placehold.co/500x300"
+            alt="Imagen 4"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </Grid.Col>
+        <Grid.Col span={4}>
+          <img
+            src="https://placehold.co/500x300"
+            alt="Imagen 5"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </Grid.Col>
+      </Grid>
     </>
   );
 }
