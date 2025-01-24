@@ -1,4 +1,10 @@
 import { Title, Text, Grid, Col, Card, Image, Anchor, Breadcrumbs } from '@mantine/core';
+import varios from '../../assets/VARIADOS 500X300.png'
+import varios2 from '../../assets/VARIADOS 500X300 2.png'
+import varios3 from '../../assets/VARIADOS 500X300 3.png'
+import varios4 from '../../assets/VARIADOS 500X300 4.png'
+import varios5 from '../../assets/VARIADOS 500X300 5.png'
+import lema from '../../assets/PROFIRECA BANNER LEMA WEB.png'
 
 function About() {
   const items = [
@@ -15,7 +21,7 @@ function About() {
     <>
       <Breadcrumbs mt={10} ml={15}>{items}</Breadcrumbs>
 
-      <Image mt={5} radius='md' src="https://placehold.co/1920x500?text=1920x500\n\nProfireca\n'lema'" alt="Imagen 1" mb="md" />
+      <Image mt={5} radius='md' src={lema} alt="Imagen 1" mb="md" />
 
       <Grid gutter="xl" grow mt="xl" mr={15} ml={15}>
         <Col span={12} md={6}>
@@ -57,7 +63,7 @@ function About() {
               <Title order={4} ta="center" mb="md" fz={24}>
                 RESPETO
               </Title>
-              <Text fz={18} color="dimmed">
+              <Text fz={18} color="dimmed" align="center">
                 Aceptar las diferencias de cada individuo mejorando sus cualidades para lograr un gran trabajo en equipo.
               </Text>
             </Card>
@@ -68,7 +74,7 @@ function About() {
               <Title order={4} ta="center" mb="md" fz={24}>
                 LIDERAZGO
               </Title>
-              <Text fz={18} color="dimmed">
+              <Text fz={18} color="dimmed" align="center">
                 Influir en otros de la mejor manera posible logrando sus objetivos planificados conjuntamente.
               </Text>
             </Card>
@@ -79,7 +85,7 @@ function About() {
               <Title order={4} ta="center" mb="md" fz={24}>
                 SERVICIO
               </Title>
-              <Text fz={18} color="dimmed">
+              <Text fz={18} color="dimmed" align="center">
                 Buscar siempre la forma de conseguir la meta trazada, superando todas las situaciones que se presenten.
               </Text>
             </Card>
@@ -90,7 +96,7 @@ function About() {
               <Title order={4} ta="center" mb="md" fz={24}>
                 PERSEVERANCIA
               </Title>
-              <Text fz={18} color="dimmed">
+              <Text fz={18} color="dimmed" align="center">
                 Entregar siempre lo mejor de cada uno, con la firme intención de generar bienestar a los demás.
               </Text>
             </Card>
@@ -100,35 +106,35 @@ function About() {
       <Grid gutter="xl" grow mt="xl" mr={15} ml={15}>
         <Grid.Col span={4}>
           <img
-            src="https://placehold.co/500x300"
+            src={varios}
             alt="Imagen 1"
             style={{ width: '100%', height: 'auto' }}
           />
         </Grid.Col>
         <Grid.Col span={4}>
           <img
-            src="https://placehold.co/500x300"
+            src={varios2}
             alt="Imagen 2"
             style={{ width: '100%', height: 'auto' }}
           />
         </Grid.Col>
         <Grid.Col span={4}>
           <img
-            src="https://placehold.co/500x300"
+            src={varios3}
             alt="Imagen 3"
             style={{ width: '100%', height: 'auto' }}
           />
         </Grid.Col>
         <Grid.Col span={4}>
           <img
-            src="https://placehold.co/500x300"
+            src={varios4}
             alt="Imagen 4"
             style={{ width: '100%', height: 'auto' }}
           />
         </Grid.Col>
         <Grid.Col span={4}>
           <img
-            src="https://placehold.co/500x300"
+            src={varios5}
             alt="Imagen 5"
             style={{ width: '100%', height: 'auto' }}
           />

@@ -1,25 +1,35 @@
 import { IconEye } from '@tabler/icons-react';
-import { useCart } from '../../CartContext'; 
+import { useCart } from '../../CartContext';
 import { useState, useEffect } from 'react';
-import { Modal, ActionIcon, Title, Image, Group, Button, NumberInput } from '@mantine/core';
+import {
+  Modal,
+  ActionIcon,
+  Title,
+  Image,
+  Grid,
+  Button,
+  NumberInput,
+  Stack,
+  Group,
+  Text
+} from '@mantine/core';
 
 function ProductsU({ product }: { product: any }) {
   const [modalOpened, setModalOpened] = useState(false);
-  const [quantity, setQuantity] = useState<number>(1); 
-  const { addToCart } = useCart(); 
+  const [quantity, setQuantity] = useState<number>(1);
+  const { addToCart } = useCart();
 
-  // Reiniciar la cantidad a 1 cuando se abre el modal
   useEffect(() => {
     if (modalOpened) {
-      setQuantity(1); // Reinicia la cantidad a 1
+      setQuantity(1);
     }
   }, [modalOpened]);
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {
-      addToCart(product); 
+      addToCart(product);
     }
-    setModalOpened(false); // Cierra el modal después de añadir el producto al carrito
+    setModalOpened(false);
   };
 
   const handleQuantityChange = (value: number | undefined) => {
@@ -33,49 +43,64 @@ function ProductsU({ product }: { product: any }) {
       <Modal
         opened={modalOpened}
         onClose={() => setModalOpened(false)}
-        size="70%"
-        withCloseButton={false}
+        size="55%"
+        withCloseButton={false} 
         centered
+        overlayBlur={3}
       >
-        <Group position="apart">
-          <div style={{ width: '40%' }}>
+        <Grid gutter="xl" align="center">
+          <Grid.Col xs={12} sm={6}>
             <Image
               fit="contain"
               src={product.src}
               alt={product.title}
-              style={{ marginBottom: 20 }}
-            />
-          </div>
-
-          <div style={{ width: '50%' }}>
-            <Title>{product.title}</Title>
-
-            <NumberInput
-              min={1}
-              type="number"
-              value={quantity}
-              onChange={handleQuantityChange} 
-              style={{ marginTop: 20 }}
-              label="Cantidad a agregar"
               radius="md"
-              size="lg"
+              withPlaceholder
             />
+          </Grid.Col>
 
-            <Group position="center">
-              <Button
-                size="lg"
-                color="red"
-                mt={15}
-                onClick={handleAddToCart}
-              >
-                Añadir
-              </Button>
-            </Group>
-          </div>
-        </Group>
+          <Grid.Col xs={12} sm={6}>
+            <Stack align="center" justify="space-between" spacing="xl">
+              <Title align="center" order={2}>
+                {product.title}
+              </Title>
+              <Title align="center" color="dimmed" order={5}>
+                {product.category}
+              </Title>
+              <Title align="center" size="sm" italic order={6}>
+                {product.subcategoria}
+              </Title>
+
+              <Group>
+                <NumberInput
+                  min={1}
+                  type="number"
+                  value={quantity}
+                  onChange={handleQuantityChange}
+                  radius="md"
+                  size="lg"
+                  style={{ width: '100px' }}
+                />
+                <Button
+                  size="lg"
+                  color="red"
+                  onClick={handleAddToCart}
+                >
+                  Añadir al carrito
+                </Button>
+              </Group>
+                <Text ta='center' mt={3} c="dimmed">What does the perfect trip look like for you? Explore the Pacific Northwest on your terms.</Text>
+            </Stack>
+          </Grid.Col>
+        </Grid>
       </Modal>
 
-      <ActionIcon onClick={() => setModalOpened(true)}>
+      <ActionIcon
+        onClick={() => setModalOpened(true)}
+        size="lg"
+        radius="xl"
+        style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      >
         <IconEye color="red" size={34} />
       </ActionIcon>
     </>
