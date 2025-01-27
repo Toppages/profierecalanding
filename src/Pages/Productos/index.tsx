@@ -5,7 +5,7 @@ import { useCart } from '../../CartContext';
 import { useState } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
 import { IconGauge, IconFilter, IconSearch, IconShoppingCart } from '@tabler/icons-react';
-import { Breadcrumbs, Anchor, Text, NavLink, Group, Grid, Title, Image, Pagination, Checkbox, TextInput, Card, ScrollArea, ActionIcon, Drawer } from '@mantine/core';
+import { Breadcrumbs, Anchor, Text, NavLink, Group, Grid, Title, Image, Pagination, Checkbox, TextInput, Card, ActionIcon, Drawer } from '@mantine/core';
 
 function Catalogo() {
     const isMobile = useMediaQuery('(min-width: 1000px)');
@@ -14,7 +14,7 @@ function Catalogo() {
     const { cart, addToCart } = useCart();
     const [filterText, setFilterText] = useState('');
     const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-    const imagesPerPage = 18;
+    const imagesPerPage = 16;
     const isLargeScreen = useMediaQuery('(min-width: 1000px)');
     const isMediumScreen = useMediaQuery('(min-width: 768px)');
     const isSmallScreen = useMediaQuery('(max-width: 767px)');
@@ -191,13 +191,12 @@ function Catalogo() {
                         </Group>
                     </Group>
 
-                    <ScrollArea style={{ height: 1250 }} type="never">
-                        <Grid mt={10} mb={100} gutter="lg" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                        <Grid mt={10} gutter="lg" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
                             {currentImages.length > 0 ? (
                                 currentImages.map((data, index) => (
                                     <Grid.Col
                                         key={index}
-                                        span={isLargeScreen ? 2 : isMediumScreen ? 3 : isSmallScreen ? 6 : 12}
+                                        span={isLargeScreen ? 3 : isMediumScreen ? 3 : isSmallScreen ? 6 : 12}
                                         style={{ textAlign: 'center' }}
                                     >
                                         <motion.div
@@ -260,7 +259,16 @@ function Catalogo() {
                                 <Text>No disponible</Text>
                             )}
                         </Grid>
-                    </ScrollArea>
+                                                        <Pagination
+                            mt={isMobile ? 15 : 20}
+                            mb={15}
+                            total={totalPages}
+                            color="red"
+                            size="lg"
+                            radius="md"
+                            page={activePage}
+                            onChange={setActivePage}
+                        />
                 </div>
             </Group>
         </>

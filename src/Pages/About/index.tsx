@@ -5,6 +5,7 @@ import varios3 from '../../assets/VARIADOS 500X300 3.png'
 import varios4 from '../../assets/VARIADOS 500X300 4.png'
 import varios5 from '../../assets/VARIADOS 500X300 5.png'
 import lema from '../../assets/PROFIRECA BANNER LEMA WEB.png'
+import valor from '../../assets/QUE NOS IDENTIFICA PROFIRECA WEB.png'
 
 function About() {
   const items = [
@@ -47,7 +48,7 @@ function About() {
         </Col>
 
         <Col span={12}>
-          <Image mt={10} radius='md' src="https://placehold.co/1920x920?text=1920x920\n\n ¿Por qué nos identificamos?\n'texto'" alt="Imagen 1" mb="md" />
+          <Image mt={10} radius='md' src={valor} alt="Imagen 1" mb="md" />
 
         </Col>
 
