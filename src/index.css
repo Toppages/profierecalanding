@@ -1,8 +1,3 @@
-body {
-    overflow-x: hidden;
-    /* background: #E8E8E8; */
-}
-
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -21,7 +16,7 @@ html {
     scrollbar-width: thin;
 }
 .active-link {
-    color: red; /* O cualquier otro color que prefieras */
+    color: red; 
     text-decoration: underline;
     text-decoration-thickness: 3px;
     transition: all 0.3s ease-in-out;
@@ -30,4 +25,3 @@ html {
 .active-link:hover {
     text-decoration-thickness: 5px;
 }
-    
