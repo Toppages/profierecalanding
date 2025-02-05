@@ -1,6 +1,6 @@
 export const PData = [
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'CILINDRO DE HIERRO 2.5 LBS', category: 'Cilindros', subcategoria: 'Cilindros de hierro' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'CILINDRO DE HIERRO 5 LBS', category: 'Cilindros', subcategoria: 'Cilindros de hierro' },
+    { src: 'https://res.cloudinary.com/di0btw2pi/image/upload/v1738780864/extintor_mediano_vacio_uvg396.png', title: 'CILINDRO DE HIERRO 2.5 LBS', category: 'Cilindros', subcategoria: 'Cilindros de hierro' },
+    { src: 'https://res.cloudinary.com/di0btw2pi/image/upload/v1738781408/se%C3%B1alizacion_salida_exit_hfi4fs.png', title: 'CILINDRO DE HIERRO 5 LBS', category: 'Cilindros', subcategoria: 'Cilindros de hierro' },
     { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'CILINDRO DE HIERRO 10 LBS SENCILLO', category: 'Cilindros', subcategoria: 'Cilindros de hierro' },
     { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'CILINDRO DE HIERRO 10 LBS DOBLE ARO', category: 'Cilindros', subcategoria: 'Cilindros de hierro' },
     { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'CILINDRO DE HIERRO 10 LBS PROF', category: 'Cilindros', subcategoria: 'Cilindros de hierro' },

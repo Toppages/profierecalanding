@@ -76,7 +76,7 @@ function Service() {
     if (selectedBranch) {
       setPhoneNumber(selectedBranch.phone);
       setMessage(`Hola, soy ${values.name}. ${values.message} \n\nPresupesto para: ${selectedCard?.title}`);
-      form.reset(); // Resetear el formulario después de enviar
+      form.reset(); 
     }
   };
 
@@ -89,7 +89,7 @@ function Service() {
 
   const handleModalClose = () => {
     setOpened(false);
-    form.reset(); // Resetea el formulario al cerrar el modal
+    form.reset(); 
   };
 
   return (
