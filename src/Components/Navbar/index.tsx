@@ -21,16 +21,22 @@ function Navbar() {
 
 
 
-                                <Image
-                                    width="200px"
-                                     style={{ display: isMobile ? "none" : "flex" }}
-                                    height="130px"
-                                    src={Logo}
-                                />
-
+                    <Image
+                        mt={-50}
+                        width="200px"
+                        style={{ display: isMobile ? "none" : "flex" }}
+                        height="100px"
+                        src={Logo}
+                    />
+    
                     {isMobile && (
                         <>
-                            <Group ml='27%' spacing="xl" position="center">
+                            <Image
+                                width="200px"
+                                height="100px"
+                                src={Logo}
+                            />
+                            <Group spacing="xl" position="center">
                                 <HoverCard width={320} radius="lg" shadow="md" openDelay={250}>
                                     <HoverCard.Target>
                                         <motion.div
@@ -105,11 +111,7 @@ function Navbar() {
                                     </HoverCard.Dropdown>
                                 </HoverCard>
 
-                                <Image
-                                    width="200px"
-                                    height="130px"
-                                    src={Logo}
-                                />
+
 
                                 <HoverCard width={320} radius="lg" shadow="md" openDelay={250}>
                                     <HoverCard.Target>
