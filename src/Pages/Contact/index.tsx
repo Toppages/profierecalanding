@@ -1,4 +1,4 @@
-import { AspectRatio, Button, Card, Group, Select, Tabs, Title, TextInput, Textarea, Text, Anchor, Breadcrumbs } from "@mantine/core";
+import { AspectRatio, Button, Card, Group, Select, Tabs, Title, TextInput, Textarea, Text, Anchor, Breadcrumbs, Stack } from "@mantine/core";
 import { IconPhone, IconMail, IconPhotoPin, IconBuildingBridge } from "@tabler/icons-react";
 import { useForm } from '@mantine/form';
 import { useState } from "react";
@@ -10,21 +10,36 @@ interface ContactCardProps {
 }
 
 function Contact() {
-const ContactCard = ({ icon, title, text }: ContactCardProps) => (
-    <Card shadow="sm" p={30} radius={15} withBorder style={{ flex: '1 1 calc(100% / 3 - 20px)', minWidth: '280px', maxWidth: '350px', backgroundColor: '#FFFFFF' }}>
-        <Group position="center">
-            {icon}
-            <Title ta="center" order={3}>{title}</Title>
-        </Group>
-        <Text mt={15} ta="center" style={{ fontSize: '12px', color: '#7D879C' }}>{text}</Text>
-    </Card>
-);
-
-const MapEmbed = ({ src }: { src: string }) => (
-    <AspectRatio mt={15} ratio={16 / 9} style={{ width: '100%', maxWidth: '1235px', height: '50vh', borderRadius: '15px', overflow: 'hidden', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
-        <iframe src={src} loading="lazy" style={{ border: 0, width: '100%', height: '100%' }}></iframe>
-    </AspectRatio>
-);
+    const ContactCard = ({ icon, title, text }: ContactCardProps) => (
+        <Card 
+            shadow="sm" 
+            radius={15} 
+            withBorder 
+            style={{ 
+                flex: '1 1 calc(100% / 3 - 20px)', 
+                minWidth: '280px', 
+                maxWidth: '350px', 
+                backgroundColor: '#FFFFFF', 
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center', 
+                height: '200px'
+            }}
+        >
+            <Stack align="center" justify="space-between" spacing="xl">
+                
+                {icon}
+                <Title ta="center" order={5}>{title}</Title>
+            <Text ta="center" style={{ fontSize: '12px', color: '#7D879C', flexGrow: 1 }}>{text}</Text>
+            </Stack>
+        </Card>
+    );
+    
+    const MapEmbed = ({ src }: { src: string }) => (
+        <AspectRatio mt={15} ratio={16 / 9} style={{ width: '100%', maxWidth: '1235px', height: '50vh', borderRadius: '15px', overflow: 'hidden', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+            <iframe src={src} loading="lazy" style={{ border: 0, width: '100%', height: '100%' }}></iframe>
+        </AspectRatio>
+    );
 
     const form = useForm({
         initialValues: {
@@ -75,24 +90,24 @@ const MapEmbed = ({ src }: { src: string }) => (
     const contactDetails = [
         {
             branch: 'Zulia',
-            phone: "(+58 412) 734-1636",
-            email: "Mail@gmail.com",
-            address: "Lorem ipsum",
+            phone: "+58 412-7341636",
+            email: "fabricaprofireca@gmail.com",
+            address: "Avenida 6 entre calles C y D, diagonal a la C2, casa #C15",
             mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.559664596235!2d-71.61429906032714!3d10.691246572862605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e89997a04389231%3A0x327497681a0c38c4!2sEXTINTORES%20PROFIRECA!5e0!3m2!1ses!2sve&zoom=100"
         },
         {
             branch: 'Caracas',
-            phone: "(+58 412) 555-5555",
+            phone: "+58 412-2359283",
             email: "Mail@gmail.com",
-            address: "Lorem ipsum",
+            address: "Calle este 12 entre esquina de rivas y miranda segunda casa, PLANTA NRO 124-A",
             mapSrc: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3923.036985885686!2d-66.91113362496202!3d10.497750589634602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDI5JzUxLjkiTiA2NsKwNTQnMzAuOCJX!5e0!3m2!1ses!2sve!4v1737401092181!5m2!1ses!2sve"
         },
         {
             branch: 'Anzoategui',
-            phone: "(+58 412) 555-5555",
+            phone: "+58 412-2359339",
             email: "Mail@gmail.com",
             address: "Lorem ipsum",
-            mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.559664596235!2d-71.61429906032714!3d10.691246572862605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e89997a04389231%3A0x327497681a0c38c4!2sEXTINTORES%20PROFIRECA!5e0!3m2!1ses!2sve&zoom=100"
+            mapSrc: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3928.62788937227!2d-65.04331132496812!3d10.047533090060321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAyJzUxLjEiTiA2NcKwMDInMjYuNyJX!5e0!3m2!1ses!2sus!4v1738877137688!5m2!1ses!2sus"
         },
     ];
 
@@ -173,9 +188,9 @@ const MapEmbed = ({ src }: { src: string }) => (
                         <Tabs.Panel key={branch} value={branch} pl="xs">
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', padding: '20px' }}>
                                 <Group mt={15} spacing={20} style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
-                                    <ContactCard icon={<IconPhone size={20} />} title={phone} text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-                                    <ContactCard icon={<IconMail size={20} />} title={email} text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-                                    <ContactCard icon={<IconPhotoPin size={20} />} title={address} text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+                                    <ContactCard icon={<IconPhone size={20} />} title={phone} text="Numero de teléfono" />
+                                    <ContactCard icon={<IconMail size={20} />} title={email} text="Correo de contacto" />
+                                    <ContactCard icon={<IconPhotoPin size={20} />} title={address} text="Dirección ." />
                                 </Group>
                             </div>
 
