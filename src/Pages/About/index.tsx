@@ -31,7 +31,7 @@ function About() {
               Visión
             </Title>
             <Text fz={18} color="dimmed" align="center">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae architecto tempora commodi aliquid animi vel atque voluptates, quia quos perspiciatis iure deleniti ipsa rerum sed? Nemo inventore quam numquam molestiae?
+              Ser reconocidos como los principales fabricantes y comercializadores de extintores y equipos de seguridad industrial en Venezuela, destacándonos por nuestra innovación, calidad y compromiso con nuestros clientes, consolidándonos como un referente en seguridad
             </Text>
           </Card>
         </Col>
@@ -42,7 +42,7 @@ function About() {
               Misión
             </Title>
             <Text fz={18} color="dimmed" align="center">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae architecto tempora commodi aliquid animi vel atque voluptates, quia quos perspiciatis iure deleniti ipsa rerum sed? Nemo inventore quam numquam molestiae?
+              Diseñar, fabricar y comercializar soluciones de seguridad industrial de alta calidad, siendo un proveedor confiable y líder en el mercado venezolano, ofreciendo productos y servicios que superen las expectativas de nuestros clientes
             </Text>
           </Card>
         </Col>

@@ -1,20 +1,16 @@
+
 ::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: red;
-    border-radius: 50px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    display: none;
 }
 
 html {
-    scrollbar-color: red #f1f1f1;  
-    scrollbar-width: thin;
+    scrollbar-width: none;
 }
+
+body {
+    -ms-overflow-style: none;
+}
+
 .active-link {
     color: red; 
     text-decoration: underline;
@@ -24,4 +20,14 @@ html {
 
 .active-link:hover {
     text-decoration-thickness: 5px;
+}
+
+.icon {
+    color: red;
+    transition: color 0.3s ease;
+}
+
+.icon:hover {
+    color: white;
+    background-color: #273036;
 }

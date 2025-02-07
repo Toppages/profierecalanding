@@ -190,7 +190,7 @@ function Contact() {
                                 <Group mt={15} spacing={20} style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
                                     <ContactCard icon={<IconPhone size={20} />} title={phone} text="Numero de teléfono" />
                                     <ContactCard icon={<IconMail size={20} />} title={email} text="Correo de contacto" />
-                                    <ContactCard icon={<IconPhotoPin size={20} />} title={address} text="Dirección ." />
+                                    <ContactCard icon={<IconPhotoPin size={20} />} title={address} text="Dirección" />
                                 </Group>
                             </div>
 

@@ -16,9 +16,7 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <Navbar />
-          <main style={{ flex: 1 }}>
             <Routes>
               <Route path="/profierecalanding" element={<Home />} />
               <Route path="/profierecalanding/Catalogo" element={<Catalogo />} />
@@ -28,7 +26,6 @@ function App() {
               <Route path="/profierecalanding/Cart" element={<Cart />} />
               <Route path="*" element={<Home />} />
             </Routes>
-          </main>
           <a 
             href="https://wa.me/+584127341636?text=hola" 
             target="_blank" 
@@ -40,7 +37,6 @@ function App() {
             </ActionIcon>
           </a>
           <Footer />
-        </div>
       </Router>
     </CartProvider>
   );
