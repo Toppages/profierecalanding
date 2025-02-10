@@ -89,7 +89,7 @@ function ProductsU({ product }: { product: any }) {
                   Añadir al carrito
                 </Button>
               </Group>
-                <Text ta='center' mt={3} c="dimmed">What does the perfect trip look like for you? Explore the Pacific Northwest on your terms.</Text>
+                <Text ta='center' mt={3} c="dimmed"> {product.descrip}</Text>
             </Stack>
           </Grid.Col>
         </Grid>
