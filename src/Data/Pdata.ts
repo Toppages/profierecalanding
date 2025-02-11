@@ -481,7 +481,7 @@ export const PData = [
     {
         src: 'https://res.cloudinary.com/di0btw2pi/image/upload/v1738940201/Extintor_5LBS_el9vwo.png',
         title: 'EXTINTOR PQS CARGADO DE 5 LBS',
-        category: 'Extintores cargados',
+        category: 'Extintor cargado',
         subcategoria: 'Extintores PQS',
         descrip: 'Extintor portátil de polvo químico seco (PQS) con capacidad de 5 libras, adecuado para la supresión de incendios de clases A, B y C.'
     },
@@ -530,45 +530,252 @@ export const PData = [
     {
         src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
         title: 'EXTINTOR DE CO2 20 LBS',
-        category: 'Extintores cargados',
+        category: 'Extintor cargado',
         subcategoria: 'Extintores CO2',
         descrip: 'Extintor de dióxido de carbono (CO2) con capacidad de 20 libras, ideal para la supresión de incendios eléctricos y líquidos inflamables sin dejar residuos.'
     },
 
 
+
+
+
     { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'EXTINTOR DE PQS CARGADO DE 2.5 LBS', category: 'extintor cargado', subcategoria: 'Extintores PQS', descrip: 'Extintor portátil de polvo químico seco (PQS) con capacidad de 2.5 libras, adecuado para combatir incendios de tipo A, B y C.' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'VALVULA ACERO INOXIDABLE', category: 'Accesorios y repuestos', subcategoria: 'Válvulas' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'CARRETA CO2 50 LBS CARGADA', category: 'Equipos industriales', subcategoria: 'Carretas CO2' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'TACO DE MADERA PARA VEHICULOS', category: 'Accesorios y repuestos', subcategoria: 'Tacos' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'DETECTOR DE HUMO', category: 'Sistemas contra incendio', subcategoria: 'Detectores de humo' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'DETECTOR TÉRMICO', category: 'Sistemas contra incendio', subcategoria: 'Detectores térmicos' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'ESTACION MANUAL METÁLICA', category: 'Sistemas contra incendio', subcategoria: 'Estaciones manuales' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'CARRETA CO2 CARGADA 100 LBS', category: 'Equipos industriales', subcategoria: 'Carretas CO2' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT DE ACERO INOXIDABLE VACÍO 1.25 GAL', category: 'Kit de extintores vacíos', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT DE ACERO INOXIDABLE VACÍO 2.5 GAL', category: 'Kit de extintores vacíos', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT DE EXTINTOR VACÍO PQS DE 20 LBS', category: 'Kit de extintores vacíos', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT VALVULA M-30', category: 'Accesorios y repuestos', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT EXTINTOR PQS CARGADO DE 20LBS', category: 'extintor cargado', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT EXTINTOR PQS CARGADO DE 10 LBS DOBLE aro', category: 'extintor cargado', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT DE EXTINTOR CARGADO PQS DE 10LBS', category: 'extintor cargado', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT DE EXTINTOR VACÍO PQS 2.5 LBS', category: 'Kit de extintores vacíos', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT DE EXTINTOR VACÍO PQS 5 LBS', category: 'Kit de extintores vacíos', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'EXTINTOR PQS CARGADO DE 15LBS', category: 'extintor cargado', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT EXTINTOR CARGADO TIPO K 1.25 GAL', category: 'Kit de extintores vacíos', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'MANGUERA CON FAJA', category: 'Accesorios y repuestos', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT DE EXTINTOR CARGADO PQS DE 10LBS', category: 'extintor cargado', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT DE EXTINTOR CARGADO PQS DE 15LBS', category: 'extintor cargado', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT CO2 20 LBS CARGADO CON CARRETA', category: 'extintor cargado', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT VALVULA M-22', category: 'Accesorios y repuestos', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT EXTINTOR CARGADO TIPO K DE 2 GAL', category: 'extintor cargado', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT DE ACERO INOXIDABLE VACÍO DE 2 GAL', category: 'Kit de extintores vacíos', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT DE EXTINTOR VACÍO PQS 10 LBS DOBLE ARO', category: 'Kit de extintores vacíos', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT DE EXTINTOR VACÍO PQS DE 10 LBS SENCILLO', category: 'Kit de extintores vacíos', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT EXTINTOR CARGADO TIPO K  2.50 GAL', category: 'extintor cargado', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT VEHICULAR 2.5 LBS PQS', category: 'kits  vehiculares', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT DE EXTINTOR CARGADO PQS DE 20LBS', category: 'extintor cargado', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT EXTINTOR CARGADO AGUA 1.25 GAL', category: 'extintor cargado', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT EXTINTOR CARGADO AGUA 2 GAL', category: 'extintor cargado', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT EXTINTOR CARGADO AGUA 2.5 GAL', category: 'extintor cargado', subcategoria: 'Vacio' },
-    { src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg', title: 'KIT DE EXTINTOR VACÍO PQS DE 15 LBS', category: 'Kit de extintores vacíos', subcategoria: 'Vacio' },
+
+
+
+
+
+
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'VÁLVULA DE ACERO INOXIDABLE',
+        category: 'Accesorios y repuestos',
+        subcategoria: 'Válvulas',
+        descrip: 'Válvula fabricada en acero inoxidable, resistente a la corrosión y diseñada para un control preciso en sistemas de seguridad y extinción.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'CARRETA CO2 50 LBS CARGADA',
+        category: 'Equipos industriales',
+        subcategoria: 'Carretas CO2',
+        descrip: 'Carreta con extintor de dióxido de carbono (CO2) cargado de 50 libras, ideal para la supresión de incendios en entornos industriales.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'TACO DE MADERA PARA VEHÍCULOS',
+        category: 'Accesorios y repuestos',
+        subcategoria: 'Tacos',
+        descrip: 'Taco de madera resistente, diseñado para asegurar vehículos en superficies inclinadas y evitar deslizamientos accidentales.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'DETECTOR DE HUMO',
+        category: 'Sistemas contra incendio',
+        subcategoria: 'Detectores de humo',
+        descrip: 'Dispositivo de detección temprana que alerta sobre la presencia de humo, contribuyendo a la prevención de incendios.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'DETECTOR TÉRMICO',
+        category: 'Sistemas contra incendio',
+        subcategoria: 'Detectores térmicos',
+        descrip: 'Detector diseñado para activar alarmas en respuesta a aumentos rápidos de temperatura, proporcionando seguridad en caso de incendio.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'ESTACIÓN MANUAL METÁLICA',
+        category: 'Sistemas contra incendio',
+        subcategoria: 'Estaciones manuales',
+        descrip: 'Estación manual de activación de alarmas fabricada en metal, ideal para sistemas de emergencia contra incendios.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'CARRETA CO2 CARGADA 100 LBS',
+        category: 'Equipos industriales',
+        subcategoria: 'Carretas CO2',
+        descrip: 'Carreta con extintor de dióxido de carbono (CO2) cargado de 100 libras, diseñada para emergencias en entornos de alto riesgo.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT DE ACERO INOXIDABLE VACÍO 1.25 GAL',
+        category: 'Kit de extintores vacíos',
+        subcategoria: 'Vacío',
+        descrip: 'Extintor de acero inoxidable vacío con capacidad de 1.25 galones, ideal para recarga y personalización según necesidades de seguridad.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT DE ACERO INOXIDABLE VACÍO 2.5 GAL',
+        category: 'Kit de extintores vacíos',
+        subcategoria: 'Vacío',
+        descrip: 'Extintor de acero inoxidable vacío con capacidad de 2.5 galones, diseñado para ser recargado y utilizado en diversas aplicaciones de seguridad.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT DE EXTINTOR VACÍO PQS DE 20 LBS',
+        category: 'Kit de extintores vacíos',
+        subcategoria: 'Vacío',
+        descrip: 'Extintor de polvo químico seco (PQS) vacío de 20 libras, listo para recarga y adaptación según los requerimientos del usuario.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT VÁLVULA M-30',
+        category: 'Accesorios y repuestos',
+        subcategoria: 'Válvulas',
+        descrip: 'Kit completo de válvula M-30, diseñado para garantizar un sellado eficiente y un funcionamiento seguro en equipos de extinción.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT EXTINTOR PQS CARGADO DE 20 LBS',
+        category: 'Extintor cargado',
+        subcategoria: 'PQS',
+        descrip: 'Extintor de polvo químico seco (PQS) de 20 libras, cargado y listo para su uso en la supresión de incendios de clase A, B y C.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT EXTINTOR PQS CARGADO DE 10 LBS DOBLE ARO',
+        category: 'Extintor cargado',
+        subcategoria: 'PQS',
+        descrip: 'Extintor PQS de 10 libras con doble aro, diseñado para una mayor estabilidad y eficiencia en la extinción de incendios.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT DE EXTINTOR CARGADO PQS DE 10 LBS',
+        category: 'Extintor cargado',
+        subcategoria: 'PQS',
+        descrip: 'Extintor de polvo químico seco (PQS) de 10 libras, ideal para protección en entornos comerciales e industriales.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT DE EXTINTOR VACÍO PQS 2.5 LBS',
+        category: 'Kit de extintores vacíos',
+        subcategoria: 'PQS',
+        descrip: 'Extintor PQS vacío con capacidad de 2.5 libras, listo para recarga según los requerimientos de seguridad.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT DE EXTINTOR VACÍO PQS 5 LBS',
+        category: 'Kit de extintores vacíos',
+        subcategoria: 'PQS',
+        descrip: 'Extintor PQS vacío con capacidad de 5 libras, ideal para mantenimiento y recarga personalizada.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'EXTINTOR PQS CARGADO DE 15 LBS',
+        category: 'Extintor cargado',
+        subcategoria: 'PQS',
+        descrip: 'Extintor de polvo químico seco (PQS) de 15 libras, cargado y listo para su uso en la protección contra incendios.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT EXTINTOR CARGADO TIPO K 1.25 GAL',
+        category: 'Extintor cargado',
+        subcategoria: 'Tipo K',
+        descrip: 'Extintor tipo K de 1.25 galones, diseñado específicamente para la supresión de incendios en cocinas y áreas de preparación de alimentos.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'MANGUERA CON FAJA',
+        category: 'Accesorios y repuestos',
+        subcategoria: 'Mangueras',
+        descrip: 'Manguera reforzada con faja de seguridad, diseñada para una conexión segura y eficiente en sistemas de extinción.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT DE EXTINTOR CARGADO PQS DE 15 LBS',
+        category: 'Extintor cargado',
+        subcategoria: 'PQS',
+        descrip: 'Extintor de polvo químico seco (PQS) de 15 libras, cargado y listo para su uso en la protección contra incendios de múltiples clases.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT CO2 20 LBS CARGADO CON CARRETA',
+        category: 'Extintor cargado',
+        subcategoria: 'CO2',
+        descrip: 'Extintor de CO2 de 20 libras montado en carreta, ideal para la supresión de incendios eléctricos y químicos en entornos industriales.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT VÁLVULA M-22',
+        category: 'Accesorios y repuestos',
+        subcategoria: 'Válvulas',
+        descrip: 'Kit de válvula M-22, diseñado para garantizar un sellado seguro y un control preciso en sistemas de extinción.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT EXTINTOR CARGADO TIPO K DE 2 GAL',
+        category: 'Extintor cargado',
+        subcategoria: 'Tipo K',
+        descrip: 'Extintor tipo K de 2 galones, diseñado para combatir incendios en cocinas y áreas con aceites y grasas inflamables.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT DE ACERO INOXIDABLE VACÍO DE 2 GAL',
+        category: 'Kit de extintores vacíos',
+        subcategoria: 'Acero inoxidable',
+        descrip: 'Extintor de acero inoxidable vacío con capacidad de 2 galones, listo para recarga o personalización según necesidad.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT DE EXTINTOR VACÍO PQS 10 LBS DOBLE ARO',
+        category: 'Kit de extintores vacíos',
+        subcategoria: 'PQS',
+        descrip: 'Extintor de polvo químico seco vacío de 10 libras con doble aro, ideal para recarga y uso en ambientes industriales.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT DE EXTINTOR VACÍO PQS DE 10 LBS SENCILLO',
+        category: 'Kit de extintores vacíos',
+        subcategoria: 'PQS',
+        descrip: 'Extintor vacío de PQS de 10 libras con diseño sencillo, preparado para mantenimiento y recarga según normativa.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT EXTINTOR CARGADO TIPO K 2.50 GAL',
+        category: 'Extintor cargado',
+        subcategoria: 'Tipo K',
+        descrip: 'Extintor de tipo K cargado con 2.5 galones, ideal para cocinas industriales y áreas con alto riesgo de incendio por aceites.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT VEHICULAR 2.5 LBS PQS',
+        category: 'Kits vehiculares',
+        subcategoria: 'PQS',
+        descrip: 'Extintor PQS de 2.5 libras para vehículos, ideal para seguridad en el transporte y prevención de incendios en automóviles.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT DE EXTINTOR CARGADO PQS DE 20 LBS',
+        category: 'Extintor cargado',
+        subcategoria: 'PQS',
+        descrip: 'Extintor de polvo químico seco (PQS) de 20 libras, cargado y listo para uso en protección contra incendios de clase A, B y C.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT EXTINTOR CARGADO AGUA 1.25 GAL',
+        category: 'Extintor cargado',
+        subcategoria: 'Agua',
+        descrip: 'Extintor de agua cargado de 1.25 galones, recomendado para incendios de tipo A en áreas comerciales y residenciales.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT EXTINTOR CARGADO AGUA 2 GAL',
+        category: 'Extintor cargado',
+        subcategoria: 'Agua',
+        descrip: 'Extintor de agua de 2 galones, diseñado para la extinción eficiente de incendios en papel, madera y materiales sólidos inflamables.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT EXTINTOR CARGADO AGUA 2.5 GAL',
+        category: 'Extintor cargado',
+        subcategoria: 'Agua',
+        descrip: 'Extintor de agua cargado de 2.5 galones, con alta capacidad de extinción para incendios de materiales ordinarios.'
+    },
+    {
+        src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
+        title: 'KIT DE EXTINTOR VACÍO PQS DE 15 LBS',
+        category: 'Kit de extintores vacíos',
+        subcategoria: 'PQS',
+        descrip: 'Extintor PQS vacío con capacidad de 15 libras, ideal para recarga y mantenimiento según estándares de seguridad.'
+    }
+
 ]
