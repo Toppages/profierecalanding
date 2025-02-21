@@ -94,7 +94,7 @@ function Service() {
 
   return (
     <>
-      <Breadcrumbs mt={10} ml={15}>
+      <Breadcrumbs mt={45} ml={15}>
         {items}
       </Breadcrumbs>
       <Title mt={15} mb={15} ta="center" order={1}>

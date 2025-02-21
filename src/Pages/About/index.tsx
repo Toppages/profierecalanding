@@ -20,7 +20,7 @@ function About() {
   ));
   return (
     <>
-      <Breadcrumbs mt={10} ml={15}>{items}</Breadcrumbs>
+      <Breadcrumbs mt={45} ml={15}>{items}</Breadcrumbs>
 
       <Image mt={5} radius='md' src={lema} alt="Imagen 1" mb="md" />
 

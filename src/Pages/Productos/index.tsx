@@ -87,7 +87,7 @@ function Catalogo() {
 
     return (
         <>
-            <Breadcrumbs mt={10} ml={15}>{items}</Breadcrumbs>
+            <Breadcrumbs mt={45} ml={15}>{items}</Breadcrumbs>
             <Text style={{ display: 'none' }}>Items in cart: {cart.length}</Text>
             <Drawer
                 opened={drawerOpened}

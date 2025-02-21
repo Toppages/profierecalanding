@@ -11,9 +11,10 @@
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
- "dependencies": {
+  "dependencies": {
     "@babel/core": ">=7.0.0 <8.0.0",
-    "@emotion/react": "^11.10.5",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@mantine/carousel": "^5.10.2",
     "@mantine/core": "^5.10.5",
     "@mantine/dates": "^5.10.2",
@@ -27,6 +28,8 @@
     "@mantine/spotlight": "^5.10.2",
     "@mantine/tiptap": "^5.10.2",
     "@mantine/utils": "^6.0.9",
+    "@mui/icons-material": "^6.4.5",
+    "@mui/material": "^6.4.5",
     "@reactivex/rxjs": "^6.6.7",
     "@reduxjs/toolkit": "^1.9.2",
     "@tabler/icons": "1.119.0",

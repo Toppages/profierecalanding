@@ -11,12 +11,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ActionIcon } from '@mantine/core';
 import { IconBrandWhatsapp } from '@tabler/icons-react';
 import { CartProvider } from './CartContext';
+import HideAppBar from './Components/Hidebar/hide';
 
 function App() {
   return (
     <CartProvider>
       <Router>
-          <Navbar />
+          <HideAppBar />
             <Routes>
               <Route path="/profierecalanding" element={<Home />} />
               <Route path="/profierecalanding/Catalogo" element={<Catalogo />} />

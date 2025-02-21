@@ -113,8 +113,8 @@ function Contact() {
 
     return (
         <>
-            <Breadcrumbs mt={10} ml={15}>{items}</Breadcrumbs>
-            <Title mt={15} mb={15} ta="center" order={1}>Contactanos</Title>
+            <Breadcrumbs mt={45} ml={15}>{items}</Breadcrumbs>
+            <Title mt={30} mb={15} ta="center" order={1}>Contactanos</Title>
 
             <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
                 <Group position="center">
