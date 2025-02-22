@@ -1,19 +1,19 @@
 import * as React from 'react';
+import Box from '@mui/material/Box';
 import Logo from '../../assets/PROFIRECA Negro.png';
 import Slide from '@mui/material/Slide';
 import AppBar from '@mui/material/AppBar';
+import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
+import MenuIcon from '@mui/icons-material/Menu';
+import IconButton from '@mui/material/IconButton';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import { motion } from 'framer-motion';
 import { useCart } from '../../CartContext';
 import { Link, useLocation } from 'react-router-dom';
 import { Group, ActionIcon, Image, Indicator, Text, Container } from '@mantine/core';
-import { IconBrandInstagram, IconBrandWhatsapp, IconBrandFacebook, IconShoppingCart } from '@tabler/icons-react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import { IconBrandInstagram, IconBrandFacebook, IconShoppingCart } from '@tabler/icons-react';
 
 interface Props {
     window?: () => Window;
@@ -51,45 +51,73 @@ export default function HideAppBar(props: Props) {
         textDecoration: 'none',
         outline: 'none'
     });
+    
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Container mt={15} style={{ display: 'flex' }}>
-                <div>
-                    <Link
-                        to="/profierecalanding/Catalogo"
-                        style={getLinkStyle('/profierecalanding/Catalogo')}
-                    >
-                        <Text mr={15} fw={700}>
-                            Catalogo
-                        </Text>
-                    </Link>
-                    <Link
-                        to="/profierecalanding/Nosotros"
-                        style={getLinkStyle('/profierecalanding/Nosotros')}
-                    >
-                        <Text mt={15} fw={700}>
-                            Nuestra empresa
-                        </Text>
-                    </Link>
-                    <Link
-                        to="/profierecalanding/contacto"
-                        style={getLinkStyle('/profierecalanding/contacto')}
-                    >
-                        <Text mt={15} fw={700}>
-                            Contactanos
-                        </Text>
-                    </Link>
-                    <Link
-                        to="/profierecalanding/Servicio"
-                        style={getLinkStyle('/profierecalanding/Servicio')}
-                    >
-                        <Text mt={15} fw={700}>
-                            Servicios
-                        </Text>
-                    </Link>
-                </div>
-            </Container>
-        </Box>
+        <Container mt={15} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+        <Link to="/profierecalanding">
+                                <Image width="200px" height="100px" src={Logo} />
+                            </Link>
+          <div>
+            <Link
+              to="/profierecalanding/Catalogo"
+              style={getLinkStyle('/profierecalanding/Catalogo')}
+            >
+              <Text mr={15} fw={700}>
+                Catalogo
+              </Text>
+            </Link>
+            <Link
+              to="/profierecalanding/Nosotros"
+              style={getLinkStyle('/profierecalanding/Nosotros')}
+            >
+              <Text mt={15} fw={700}>
+                Nuestra empresa
+              </Text>
+            </Link>
+            <Link
+              to="/profierecalanding/contacto"
+              style={getLinkStyle('/profierecalanding/contacto')}
+            >
+              <Text mt={15} fw={700}>
+                Contactanos
+              </Text>
+            </Link>
+            <Link
+              to="/profierecalanding/Servicio"
+              style={getLinkStyle('/profierecalanding/Servicio')}
+            >
+              <Text mt={15} fw={700}>
+                Servicios
+              </Text>
+            </Link>
+            <Group mt={15} spacing="xl" position="center">
+              <ActionIcon mr={15} radius="xl">
+                <IconBrandInstagram color="red" size={34} />
+              </ActionIcon>
+              <ActionIcon mr={15} radius="xl">
+                <IconBrandFacebook color="red" size={34} />
+              </ActionIcon>
+              {cart.length > 0 ? (
+                <Indicator label={cart.length} withBorder showZero={false} inline color="red" overflowCount={999} size={20}>
+                  <Link to="/profierecalanding/Cart">
+                    <ActionIcon mr={8} radius="xl">
+                      <IconShoppingCart color="red" size={34} />
+                    </ActionIcon>
+                  </Link>
+                </Indicator>
+              ) : (
+                <Link to="/profierecalanding/Cart">
+                  <ActionIcon mr={8} radius="xl">
+                    <IconShoppingCart color="red" size={34} />
+                  </ActionIcon>
+                </Link>
+              )}
+            </Group>
+          </div>
+        </Container>
+      </Box>
+      
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
@@ -98,7 +126,7 @@ export default function HideAppBar(props: Props) {
         <React.Fragment>
             <CssBaseline />
             <HideOnScroll {...props}>
-            <AppBar component="nav" sx={{ backgroundColor: '#273036' }}>
+                <AppBar component="nav" sx={{ backgroundColor: '#273036' }}>
 
                     <Toolbar>
                         <IconButton
@@ -111,20 +139,33 @@ export default function HideAppBar(props: Props) {
                             <MenuIcon />
                         </IconButton>
                         <Box
-    sx={{
-        display: { xs: 'flex', sm: 'none' },  // Para pantallas pequeñas
-        justifyContent: 'center', // Centrado en la pantalla móvil
-        flexGrow: 1,
-    }}
->
-    <Image width="200px" height="100px" src={Logo} />
-</Box>
+                            sx={{
+                                display: { xs: 'flex', sm: 'none' },
+                                justifyContent: 'center',
+                                flexGrow: 1,
+                            }}
+                        >
+                            <Link to="/profierecalanding">
+                                <Image width="200px" height="100px" src={Logo} />
+                            </Link>
+
+                        </Box>
                         <Box sx={{ display: { xs: 'none', sm: 'block' }, justifyContent: 'flex-end' }}>
-                            <Image width="200px" height="100px" src={Logo} />
+                            
+                        <Link to="/profierecalanding">
+                            <Image width="200px" height="89px" src={Logo} />
+                        </Link>
                         </Box>
                         <Box sx={{ display: { xs: 'none', sm: 'block' }, flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}>
                             <Group spacing="xl" position="center">
-                                {['/profierecalanding/Catalogo', '/profierecalanding/Nosotros', '/profierecalanding/contacto', '/profierecalanding/Servicio'].map((path, index) => (
+                                <Link to="/profierecalanding" style={{ textDecoration: 'none' }}>
+                                    <motion.div whileHover={{ scale: 1.1, color: 'red' }}>
+                                        <Text fw={700} style={{ color: isActive("/profierecalanding") }}>
+                                            Inicio
+                                        </Text>
+                                    </motion.div>
+                                </Link>
+                                {['/profierecalanding/Catalogo', '/profierecalanding/Nosotros', '/profierecalanding/Contacto', '/profierecalanding/Servicio'].map((path, index) => (
                                     <Link key={index} to={path} style={{ textDecoration: 'none' }}>
                                         <motion.div whileHover={{ scale: 1.1, color: 'red' }}>
                                             <Text fw={700} style={{ color: isActive(path) }}>
@@ -134,8 +175,11 @@ export default function HideAppBar(props: Props) {
                                     </Link>
                                 ))}
                             </Group>
+
                         </Box>
-                        <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                        <Box sx={{ display: { xs: 'none', sm: 'block' }}}>
+                        <Group spacing="xl" position="center">
+
                             <ActionIcon mr={15} radius="xl"><IconBrandInstagram color="red" size={34} /></ActionIcon>
                             <ActionIcon mr={15} radius="xl"><IconBrandFacebook color="red" size={34} /></ActionIcon>
                             {cart.length > 0 ? (
@@ -149,6 +193,7 @@ export default function HideAppBar(props: Props) {
                                     <ActionIcon mr={8} radius="xl"><IconShoppingCart color="red" size={34} /></ActionIcon>
                                 </Link>
                             )}
+                        </Group>
                         </Box>
                     </Toolbar>
                 </AppBar>

@@ -1,4 +1,5 @@
 import './App.css';
+import Cart from './Pages/Cart/Index';
 import Home from './Home';
 import About from './Pages/About';
 import Footer from './Components/Footer/Index';
@@ -6,12 +7,11 @@ import Navbar from './Components/Navbar';
 import Contact from './Pages/Contact';
 import Service  from './Pages/Service/Index';
 import Catalogo from './Pages/Productos';
-import Cart from './Pages/Cart/Index';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ActionIcon } from '@mantine/core';
-import { IconBrandWhatsapp } from '@tabler/icons-react';
-import { CartProvider } from './CartContext';
 import HideAppBar from './Components/Hidebar/hide';
+import { ActionIcon } from '@mantine/core';
+import { CartProvider } from './CartContext';
+import { IconBrandWhatsapp } from '@tabler/icons-react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (

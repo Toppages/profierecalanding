@@ -23,16 +23,25 @@ function Navbar() {
                     <>
                         <Image width="200px" height="100px" src={Logo} />
                         <Group spacing="xl" position="center">
-                            {['/profierecalanding/Catalogo', '/profierecalanding/Nosotros', '/profierecalanding/contacto', '/profierecalanding/Servicio'].map((path, index) => (
-                                <Link key={index} to={path} style={{ textDecoration: 'none' }}>
-                                    <motion.div whileHover={{ scale: 1.1, color: 'red' }}>
-                                        <Text fw={700} style={{ color: isActive(path) }}>
-                                            {path.split('/').pop()}
-                                        </Text>
-                                    </motion.div>
-                                </Link>
-                            ))}
-                        </Group>
+    <Link to="/profierecalanding" style={{ textDecoration: 'none' }}>
+        <motion.div whileHover={{ scale: 1.1, color: 'red' }}>
+            <Text fw={700} style={{ color: isActive("/profierecalanding") }}>
+                Inicio
+            </Text>
+        </motion.div>
+    </Link>
+    {['/profierecalanding/Catalogo', '/profierecalanding/Nosotros', '/profierecalanding/contacto', '/profierecalanding/Servicio'].map((path, index) => (
+        <Link key={index} to={path} style={{ textDecoration: 'none' }}>
+            <motion.div whileHover={{ scale: 1.1, color: 'red' }}>
+                <Text fw={700} style={{ color: isActive(path) }}>
+                    {path.split('/').pop()}
+                </Text>
+            </motion.div>
+        </Link>
+    ))}
+</Group>
+
+
                     </>
                 )}
 

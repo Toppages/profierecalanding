@@ -1,61 +1,42 @@
-import { Card, Text, Group, ActionIcon } from "@mantine/core";
-import { IconBrandFacebook, IconBrandInstagram, IconBrandWhatsapp, IconMapPin } from "@tabler/icons-react";
+import { Card, Text, Group, Divider, Title } from "@mantine/core";
 
 function Footer() {
     return (
-        <>
+        <Card bg='#273036' shadow="sm" radius="xs" p={20}>
+            <Group mr={15} ml={15} position="apart" spacing="xl" align="flex-start" mt={15}>
+                <div style={{ textAlign: 'center' }}>
+                    <Title c='white' order={3}>
+                        Profireca
+                    </Title>
+                    <Text color="gray" size="sm" style={{ maxWidth: 300, margin: '0 auto', textAlign: 'justify' }}>
+                        Expertos en seguridad contra incendios, brindando soluciones de calidad desde hace más de 20 años.
+                    </Text>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                    <Title c='white' order={3}>
+                        Contacto
+                    </Title>
+                    <Text color="gray" size="xs" style={{ textAlign: 'justify' }}>Av. Principal 123, Ciudad</Text>
+                    <Text color="gray" size="xs" style={{ textAlign: 'justify' }}>+1 234 567 890</Text>
+                    <Text color="gray" size="xs" style={{ textAlign: 'justify' }}>contacto@Profireca.com</Text>
+                </div>
 
-            <Card bg='#273036' shadow="sm" radius="xs" >
-                <Group position="apart" spacing="xl">
-                    <Text color="White" size="xl">Texto</Text>
-                    <Text color="White" size="xl">Texto</Text>
-                    <Text color="White" size="xl">Texto</Text>
-                </Group>
+                <div style={{ textAlign: 'center' }}>
+                    <Title c='white' order={3}>
+                        Horario de Atención
+                    </Title>
+                    <Text color="gray" size="xs" style={{ textAlign: 'justify' }}>Lunes - Viernes: 9:00 - 18:00</Text>
+                    <Text color="gray" size="xs" style={{ textAlign: 'justify' }}>Sábado: 9:00 - 13:00</Text>
+                    <Text color="gray" size="xs" style={{ textAlign: 'justify' }}>Domingo: Cerrado</Text>
+                </div>
+            </Group>
 
-                <Group position="apart" spacing="xl" >
-                    <Text color="gray" size="sm">Texto</Text>
-                    <Text color="gray" size="sm">Texto</Text>
-                    <Text color="gray" size="sm">Texto</Text>
-                </Group>
-                <Group position="apart" spacing="xl" >
-                    <Text color="gray" size="sm">Texto</Text>
-                    <Text color="gray" size="sm">Texto</Text>
-                    <Text color="gray" size="sm">Texto</Text>
-                </Group>
+            <Divider mr={15} ml={15} my="sm" variant="dotted" mt={25} />
 
-                <Group position="apart" spacing="xl">
-                    <Text color="gray" size="sm">Texto</Text>
-                    <Text color="gray" size="sm">Texto</Text>
-                    <Text color="gray" size="sm">Texto</Text>
-                </Group>
-
-                <Group position="apart" spacing="xl" mb={20}>
-                    <Text color="gray" size="sm">Texto</Text>
-                    <Text color="gray" size="sm">Texto</Text>
-                    <Text color="gray" size="sm">Texto</Text>
-                </Group>
-
-                <Group position="center" spacing="xl" mr={25} mb={15}>
-                    <ActionIcon className="icon">
-                        <IconMapPin size={34} />
-                    </ActionIcon>
-                    <ActionIcon className="icon" radius="xl">
-                        <IconBrandFacebook size={34} />
-                    </ActionIcon>
-                    <ActionIcon className="icon" radius="xl">
-                        <IconBrandWhatsapp size={34} />
-                    </ActionIcon>
-                    <ActionIcon className="icon" >
-                        <IconBrandInstagram size={34} />
-                    </ActionIcon>
-                </Group>
-
-
-                <Text color="gray" size="xs" align="center" mt="xl">
-                    Copyright  &copy; 2025 Profire C.A. Todos los derechos reservados. Desarrollado por: Evanansemprun
-                </Text>
-            </Card>
-        </>
+            <Text color="gray" size="xs" align="center" mt={25}>
+                &copy; 2025 Profireca. Todos los derechos reservados.
+            </Text>
+        </Card>
     );
 }
 
