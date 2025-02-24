@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Logo from '../../assets/PROFIRECA Negro.png';
+import Logo from '../../assets/PROFIRECA.png';
 import Slide from '@mui/material/Slide';
 import AppBar from '@mui/material/AppBar';
 import Drawer from '@mui/material/Drawer';
@@ -38,7 +38,7 @@ export default function HideAppBar(props: Props) {
     const location = useLocation();
     const { cart } = useCart();
 
-    const isActive = (path: string) => location.pathname === path ? 'red' : 'black';
+    const isActive = (path: string) => location.pathname === path ? 'red' : 'white';
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 

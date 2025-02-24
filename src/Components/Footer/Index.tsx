@@ -25,7 +25,7 @@ function Footer() {
                     <Title c='white' order={3}>
                         Horario de Atención
                     </Title>
-                    <Text color="gray" size="xs" style={{ textAlign: 'justify' }}>Lunes - Viernes: 9:00 - 18:00</Text>
+                    <Text color="gray" size="xs" style={{ textAlign: 'justify' }}>Lunes - Sábado: 8:00am a  5:00 pm</Text>
                     <Text color="gray" size="xs" style={{ textAlign: 'justify' }}>Sábado: 9:00 - 13:00</Text>
                     <Text color="gray" size="xs" style={{ textAlign: 'justify' }}>Domingo: Cerrado</Text>
                 </div>

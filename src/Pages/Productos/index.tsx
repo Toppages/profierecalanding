@@ -1,11 +1,11 @@
-import ProductsU from '../../Components/ProductsU/Index';
+
 import { PData } from '../../Data/Pdata';
 import { motion } from 'framer-motion';
 import { useCart } from '../../CartContext';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
-import { IconGauge, IconFilter, IconSearch, IconShoppingCart } from '@tabler/icons-react';
-import { Breadcrumbs, Anchor, Text, NavLink, Group, Grid, Title, Image, Pagination, Checkbox, TextInput, Card, ActionIcon, Drawer } from '@mantine/core';
+import { IconGauge, IconFilter, IconSearch, IconShoppingCart, IconEye } from '@tabler/icons-react';
+import { Breadcrumbs, Anchor, Text, NavLink, Group, Grid, Title, Image, Pagination, Checkbox, TextInput, Card, ActionIcon, Drawer, Modal, Button, Stack, NumberInput } from '@mantine/core';
 
 function Catalogo() {
     const isMobile = useMediaQuery('(min-width: 1000px)');
@@ -19,6 +19,10 @@ function Catalogo() {
     const isMediumScreen = useMediaQuery('(min-width: 768px)');
     const isSmallScreen = useMediaQuery('(max-width: 767px)');
     const [drawerOpened, setDrawerOpened] = useState(false);
+
+    const [modalOpened, setModalOpened] = useState(false);
+    const [quantity, setQuantity] = useState(1);
+    const [product, setProduct] = useState<any>(null);
 
     const items = [
         { title: 'Inicio', href: '/profierecalanding' },
@@ -56,21 +60,6 @@ function Catalogo() {
         activePage * imagesPerPage
     );
 
-    const cardVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
-        hover: {
-            scale: 1.05,
-            boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
-            transition: { duration: 0.3 }
-        },
-        rest: {
-            scale: 1,
-            boxShadow: "none",
-            transition: { duration: 0.3 }
-        }
-    };
-
     const navLinkData = [
         ...new Set(PData.map(item => item.category))
     ].map(category => ({
@@ -83,6 +72,24 @@ function Catalogo() {
 
     const handleNavLinkClick = (index: number) => {
         setActiveIndex(activeIndex === index ? null : index);
+    };
+
+    useEffect(() => {
+        if (modalOpened) {
+            setQuantity(1);
+        }
+    }, [modalOpened]);
+
+    const handleAddToCartModal = () => {
+        for (let i = 0; i < quantity; i++) {
+            addToCart(product);
+        }
+        setModalOpened(false);
+    };
+
+    const handleOpenModal = (product: any) => {
+        setProduct(product);
+        setModalOpened(true);
     };
 
     return (
@@ -124,7 +131,50 @@ function Catalogo() {
                     </NavLink>
                 ))}
             </Drawer>
+            <Modal
+                opened={modalOpened}
+                onClose={() => setModalOpened(false)}
+                size="55%"
+                withCloseButton={false}
+                centered
+                overlayBlur={3}
+            >
+                {product && (
+                    <Grid gutter="xl" align="center">
+                        <Grid.Col xs={12} sm={6}>
+                            <Image fit="contain" src={product.src} alt={product.title} radius="md" withPlaceholder />
+                        </Grid.Col>
+                        <Grid.Col xs={12} sm={6}>
+                            <Stack align="center" justify="space-between" spacing="xl">
+                                <Title align="center" order={2}>{product.title}</Title>
+                                <Title align="center" color="dimmed" order={5}>{product.category}</Title>
+                                <Title align="center" size="sm" italic order={6}>{product.subcategoria}</Title>
+                                <Group>
+                                    <NumberInput
+                                        min={1}
+                                        type="number"
+                                        value={quantity}
+                                        onChange={(value) => {
+                                            if (value !== undefined) {
+                                                setQuantity(value);
+                                            }
+                                        }}
+                                        radius="md"
+                                        size="lg"
+                                        style={{ width: '100px' }}
+                                    />
 
+                                    <Button size="lg" color="red" onClick={handleAddToCartModal}>
+                                        Añadir al carrito
+                                    </Button>
+
+                                </Group>
+                                <Text ta='center' mt={3} c="dimmed">{product.descrip}</Text>
+                            </Stack>
+                        </Grid.Col>
+                    </Grid>
+                )}
+            </Modal>
             <Group align="start" style={{ width: '100%' }} spacing={isSmallScreen ? 'xs' : 'lg'}>
                 {isLargeScreen && (
                     <div style={{ flex: 1, maxWidth: '200px' }}>
@@ -191,84 +241,77 @@ function Catalogo() {
                         </Group>
                     </Group>
 
-                        <Grid mt={10} gutter="lg" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-                            {currentImages.length > 0 ? (
-                                currentImages.map((data, index) => (
-                                    <Grid.Col
-                                        key={index}
-                                        span={isLargeScreen ? 3 : isMediumScreen ? 3 : isSmallScreen ? 6 : 12}
-                                        style={{ textAlign: 'center' }}
+                    <Grid mt={10} gutter="lg" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                        {currentImages.length > 0 ? (
+                            currentImages.map((data, index) => (
+                                <Grid.Col key={index} span={isLargeScreen ? 3 : isMediumScreen ? 3 : isSmallScreen ? 6 : 12} style={{ textAlign: 'center' }}>
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                                     >
-                                        <motion.div
-                                            initial="hidden"
-                                            animate="visible"
-                                            whileHover="hover"
-                                            exit="rest"
-                                            variants={cardVariants}
-                                            transition={{ duration: 0.3 }}
-                                        >
-                                            <Card mb={5} shadow="xl" p="lg" radius="md" style={{ position: 'relative', width: '100%', maxWidth: '400px' }}>
-                                                <Card.Section>
-                                                    <Group
-                                                        style={{
-                                                            position: 'absolute',
-                                                            top: '10px',
-                                                            left: '0',
-                                                            right: '0',
-                                                            zIndex: 1,
-                                                            justifyContent: 'space-between',
-                                                            padding: '0 10px',
-                                                        }}
-                                                    >
-                                                        <ProductsU product={data} />
-                                                        <ActionIcon radius="xl" onClick={() => handleAddToCart(data)}>
-                                                            <IconShoppingCart color="red" size={34} />
-                                                        </ActionIcon>
-                                                    </Group>
+                                    <Card
+    shadow="xl"
+    p="lg"
+    radius="md"
+    style={{ position: 'relative', width: '100%', maxWidth: '400px' }}
+    onClick={() => handleOpenModal(data)} // Esto abre el modal al hacer clic en la carta
+>
+    <Card.Section>
+        <Group
+            style={{
+                position: 'absolute',
+                top: '10px',
+                left: '0',
+                right: '0',
+                zIndex: 1,
+                justifyContent: 'space-between',
+                padding: '0 10px',
+            }}
+        >
+            <ActionIcon onClick={(e) => { e.stopPropagation(); handleOpenModal(data); }} size="lg" radius="xl">
+                <IconEye color="red" size={34} />
+            </ActionIcon>
+            <ActionIcon 
+                radius="xl" 
+                onClick={(e) => { e.stopPropagation(); handleAddToCart(data); }} // Detiene la propagación aquí
+            >
+                <IconShoppingCart color="red" size={34} />
+            </ActionIcon>
+        </Group>
 
-                                                    {data.src && (
-                                                        <Image
-                                                            src={data.src}
-                                                            alt={data.title}
-                                                            fit="contain"
-                                                            style={{
-                                                                width: '100%',
-                                                                height: 'auto',
-                                                                objectFit: 'cover',
-                                                                maxWidth: '100%',
-                                                                margin: '0 auto',
-                                                            }}
-                                                        />
-                                                    )}
-                                                </Card.Section>
+        {data.src && (
+            <Image
+                src={data.src}
+                alt={data.title}
+                fit="contain"
+                style={{ width: '100%', height: 'auto', objectFit: 'cover', maxWidth: '100%', margin: '0 auto' }}
+            />
+        )}
+    </Card.Section>
 
-                                                <Title order={6} style={{
-                                                    whiteSpace: 'nowrap',
-                                                    overflow: 'hidden',
-                                                    textOverflow: 'ellipsis',
-                                                    maxWidth: '100%',
-                                                }}>
-                                                    {data.title}
-                                                </Title>
-                                            </Card>
+    <Title order={6} style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '100%' }}>
+        {data.title}
+    </Title>
+</Card>
 
-                                        </motion.div>
-                                    </Grid.Col>
-                                ))
-                            ) : (
-                                <Text>No disponible</Text>
-                            )}
-                        </Grid>
-                                                        <Pagination
-                            mt={isMobile ? 15 : 20}
-                            mb={15}
-                            total={totalPages}
-                            color="red"
-                            size="lg"
-                            radius="md"
-                            page={activePage}
-                            onChange={setActivePage}
-                        />
+                                    </motion.div>
+                                </Grid.Col>
+                            ))
+                        ) : (
+                            <Text>No disponible</Text>
+                        )}
+                    </Grid>
+                    <Pagination
+                        mt={isMobile ? 15 : 20}
+                        mb={15}
+                        total={totalPages}
+                        color="red"
+                        size="lg"
+                        radius="md"
+                        page={activePage}
+                        onChange={setActivePage}
+                    />
                 </div>
             </Group>
         </>
