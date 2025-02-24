@@ -3,12 +3,15 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useState, useRef } from "react";
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 import { Card, Image, Divider, Title, ActionIcon, Group } from '@mantine/core';
+import ProductModal from '../Products/ProductModal';
 
 function ImportarnP() {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [embla, setEmbla] = useState<Embla | null>(null);
     const [showControls, setShowControls] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
+    const [openedModal, setOpenedModal] = useState(false); 
+    const [selectedProduct, setSelectedProduct] = useState<any>(null); 
     const componentRef = useRef<HTMLDivElement>(null);
 
     const handleScroll = useCallback(() => {
@@ -43,7 +46,6 @@ function ImportarnP() {
 
     const handlePrev = () => embla && embla.scrollPrev();
     const handleNext = () => embla && embla.scrollNext();
-
     const cards = [
         {
             src: 'https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg',
@@ -153,6 +155,11 @@ function ImportarnP() {
 
     ];
 
+    const handleCardClick = (product: any) => {
+        setSelectedProduct(product);
+        setOpenedModal(true);
+    };
+
     return (
         <>
             <Group position='center'>
@@ -199,6 +206,7 @@ function ImportarnP() {
                                     mb={45}
                                     radius="md"
                                     style={{ position: 'relative', width: '100%', maxWidth: '400px' }}
+                                    onClick={() => handleCardClick(card)} // Agregar onClick aquí
                                 >
                                     <Image
                                         src={card.src}
@@ -215,7 +223,6 @@ function ImportarnP() {
                         </Carousel.Slide>
                     ))}
                 </Carousel>
-
 
                 <div style={{
                     position: 'absolute',
@@ -284,6 +291,8 @@ function ImportarnP() {
                     )}
                 </AnimatePresence>
             </div>
+
+            <ProductModal opened={openedModal} onClose={() => setOpenedModal(false)} product={selectedProduct} />
         </>
     );
 }

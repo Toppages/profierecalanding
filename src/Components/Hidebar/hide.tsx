@@ -110,11 +110,17 @@ export default function HideAppBar(props: Props) {
 
           <Group mt={15} spacing="xl" position="center">
             <ActionIcon mr={15} radius="xl">
-              <IconBrandInstagram color="red" size={34} />
+              <a href="https://www.instagram.com/extintoresprofireca?igsh=YWJsemxobG04M2Zp" target="_blank" rel="noopener noreferrer">
+                <IconBrandInstagram color="red" size={34} />
+              </a>
             </ActionIcon>
+
             <ActionIcon mr={15} radius="xl">
-              <IconBrandFacebook color="red" size={34} />
+              <a href="https://www.facebook.com/profile.php?id=100090402380758" target="_blank" rel="noopener noreferrer">
+                <IconBrandFacebook color="red" size={34} />
+              </a>
             </ActionIcon>
+
             {cart.length > 0 ? (
               <Indicator label={cart.length} withBorder showZero={false} inline color="red" overflowCount={999} size={20}>
                 <Link to="/profierecalanding/Cart">
@@ -197,8 +203,18 @@ export default function HideAppBar(props: Props) {
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               <Group spacing="xl" position="center">
 
-                <ActionIcon mr={15} radius="xl"><IconBrandInstagram color="red" size={34} /></ActionIcon>
-                <ActionIcon mr={15} radius="xl"><IconBrandFacebook color="red" size={34} /></ActionIcon>
+                <ActionIcon mr={15} radius="xl">
+                  <a href="https://www.instagram.com/extintoresprofireca?igsh=YWJsemxobG04M2Zp" target="_blank" rel="noopener noreferrer">
+                    <IconBrandInstagram color="red" size={34} />
+                  </a>
+                </ActionIcon>
+
+                <ActionIcon mr={15} radius="xl">
+                  <a href="https://www.facebook.com/profile.php?id=100090402380758" target="_blank" rel="noopener noreferrer">
+                    <IconBrandFacebook color="red" size={34} />
+                  </a>
+                </ActionIcon>
+
                 {cart.length > 0 ? (
                   <Indicator label={cart.length} withBorder showZero={false} inline color="red" overflowCount={999} size={20}>
                     <Link to="/profierecalanding/Cart">

@@ -2,10 +2,11 @@
 import { PData } from '../../Data/Pdata';
 import { motion } from 'framer-motion';
 import { useCart } from '../../CartContext';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
 import { IconGauge, IconFilter, IconSearch, IconShoppingCart, IconEye } from '@tabler/icons-react';
-import { Breadcrumbs, Anchor, Text, NavLink, Group, Grid, Title, Image, Pagination, Checkbox, TextInput, Card, ActionIcon, Drawer, Modal, Button, Stack, NumberInput } from '@mantine/core';
+import { Breadcrumbs, Anchor, Text, NavLink, Group, Grid, Title, Image, Pagination, Checkbox, TextInput, Card, ActionIcon, Drawer} from '@mantine/core';
+import ProductModal from '../../Components/Products/ProductModal';
 
 function Catalogo() {
     const isMobile = useMediaQuery('(min-width: 1000px)');
@@ -21,7 +22,6 @@ function Catalogo() {
     const [drawerOpened, setDrawerOpened] = useState(false);
 
     const [modalOpened, setModalOpened] = useState(false);
-    const [quantity, setQuantity] = useState(1);
     const [product, setProduct] = useState<any>(null);
 
     const items = [
@@ -74,18 +74,7 @@ function Catalogo() {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
-    useEffect(() => {
-        if (modalOpened) {
-            setQuantity(1);
-        }
-    }, [modalOpened]);
 
-    const handleAddToCartModal = () => {
-        for (let i = 0; i < quantity; i++) {
-            addToCart(product);
-        }
-        setModalOpened(false);
-    };
 
     const handleOpenModal = (product: any) => {
         setProduct(product);
@@ -131,58 +120,14 @@ function Catalogo() {
                     </NavLink>
                 ))}
             </Drawer>
-            <   Modal
+
+
+            <ProductModal
                 opened={modalOpened}
                 onClose={() => setModalOpened(false)}
-                size={!isMobile ? '90%' : '55%'}
-                withCloseButton={false}
-                centered
-                overlayBlur={3}
-                styles={{
-                    root: {
-                        zIndex: 2001,
-                    },
-                    modal: {
-                        backgroundColor: 'white',
-                    },
-                }}
-            >
-                {product && (
-                    <Grid gutter="xl" align="center">
-                        <Grid.Col xs={12} sm={6}>
-                            <Image fit="contain" src={product.src} alt={product.title} radius="md" withPlaceholder />
-                        </Grid.Col>
-                        <Grid.Col xs={12} sm={6}>
-                            <Stack align="center" justify="space-between" spacing="xl">
-                                <Title align="center" order={2}>{product.title}</Title>
-                                <Title align="center" color="dimmed" order={5}>{product.category}</Title>
-                                <Title align="center" size="sm" italic order={6}>{product.subcategoria}</Title>
-                                <Group>
-                                    <NumberInput
-                                        min={1}
-                                        type="number"
-                                        value={quantity}
-                                        onChange={(value) => {
-                                            if (value !== undefined) {
-                                                setQuantity(value);
-                                            }
-                                        }}
-                                        radius="md"
-                                        size="lg"
-                                        style={{ width: '100px' }}
-                                    />
+                product={product}
+            />
 
-                                    <Button size="lg" color="red" onClick={handleAddToCartModal}>
-                                        Añadir al carrito
-                                    </Button>
-
-                                </Group>
-                                <Text ta='center' mt={3} c="dimmed">{product.descrip}</Text>
-                            </Stack>
-                        </Grid.Col>
-                    </Grid>
-                )}
-            </Modal>
             <Group align="start" style={{ width: '100%' }} spacing={isSmallScreen ? 'xs' : 'lg'}>
                 {isLargeScreen && (
                     <div style={{ flex: 1, maxWidth: '200px' }}>
