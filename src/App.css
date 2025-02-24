@@ -15,22 +15,24 @@
     max-height: 400px;
   }
 }
-
 .tab-list {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
   border-bottom: 2px solid #ccc;
   margin-bottom: 20px;
   position: relative;
+  flex-wrap: wrap; /* Permite que las pestañas se ajusten en móviles */
 }
 
 .tab {
-  padding: 10px 20px;
-  margin-right: 10px;
+  padding: 10px 15px;
+  margin-right: 5px;
   border-bottom: 2px solid transparent;
-  transition: background-color 0.3s #ccc;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  white-space: nowrap; /* Evita que se corten los textos */
 }
 
 .tab:hover {
@@ -41,6 +43,18 @@
 .active-tab {
   color: red;
   border-bottom: 2px solid red;
-  position: relative;
-  top: 2px;
+}
+
+@media (max-width: 768px) {
+  .tab-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .tab {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+  }
 }

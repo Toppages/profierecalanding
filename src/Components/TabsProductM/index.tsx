@@ -1,43 +1,41 @@
 import Productsmain from "../Productsmain";
-import { Text } from '@mantine/core';
-import { useState } from "react";
+import { Tabs } from '@mantine/core';
 
 function TabsProductM() {
-    const [activeTab, setActiveTab] = useState(0);
-
-    const tabs = ['Extintor cargado', 'Equipos industriales', 'Accesorios y repuestos'];
-
-    const handleTabClick = (index: number) => {
-        setActiveTab(index);
-    };
+    const tabs = [
+        { label: "Extintor cargado", value: "extintor" },
+        { label: "Equipos industriales", value: "equipos" },
+        { label: "Accesorios y repuestos", value: "accesorios" },
+    ];
 
     return (
         <>
-            <div className="tabs-container">
-                <div className="tab-list">
-                    {tabs.map((tab, index) => (
-                        <div
-                            key={index}
-                            className={`tab ${index === activeTab ? 'active-tab' : ''}`}
-                            onClick={() => handleTabClick(index)}
-                        >
-                            <Text
-                                mt={45}
-                                mr={15}
-                                fw={700}
-                            >
-                                {tab}
-                            </Text>
-                        </div>
-                    ))}
-                </div>
+             <Tabs mt={25} color="red" defaultValue="extintor">
+            <Tabs.List grow position="center">
+                {tabs.map((tab) => (
+                    <Tabs.Tab
+                        key={tab.value}
+                        value={tab.value}
+                        fz={{ base: "md", sm: "lg", lg: "xl" }}
+                        sx={{ textAlign: "center" }}
+                    >
+                        {tab.label}
+                    </Tabs.Tab>
+                ))}
+            </Tabs.List>
 
-                <div className="tab-content">
-                    {activeTab === 0 && <Productsmain category="Extintor cargado" />}
-                    {activeTab === 1 && <Productsmain category="Equipos industriales" />}
-                    {activeTab === 2 && <Productsmain category="Accesorios y repuestos" />}
-                </div>
-            </div>
+            <Tabs.Panel value="extintor" pl="xs">
+                <Productsmain category="Extintor cargado" />
+            </Tabs.Panel>
+
+            <Tabs.Panel value="equipos" pl="xs">
+                <Productsmain category="Equipos industriales" />
+            </Tabs.Panel>
+
+            <Tabs.Panel value="accesorios" pl="xs">
+                <Productsmain category="Accesorios y repuestos" />
+            </Tabs.Panel>
+        </Tabs>
         </>
     );
 }

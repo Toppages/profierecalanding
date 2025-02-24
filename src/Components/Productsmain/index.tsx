@@ -91,18 +91,18 @@ function Productsmain({ category }: ProductsmainProps) {
                                 radius="md"
                                 style={{ position: 'relative', width: '100%', maxWidth: '400px' }}
                             >
-<Card.Section>
+                                <Card.Section>
 
-                                <Image
-                                    src={product.src}
-                                    alt={product.title}
-                                    fit="contain"
-                                    radius="md"
-                                    width="100%"
-                                    height="100%"
-                                    style={{ objectFit: 'contain', maxHeight: '850px' }}
-                                />
-</Card.Section>
+                                    <Image
+                                        src={product.src}
+                                        alt={product.title}
+                                        fit="contain"
+                                        radius="md"
+                                        width="100%"
+                                        height="100%"
+                                        style={{ objectFit: 'contain', maxHeight: '850px' }}
+                                    />
+                                </Card.Section>
                                 <Title ta="center" order={6}>{product.title}</Title>
                             </Card>
                         </motion.div>

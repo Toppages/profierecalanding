@@ -31,18 +31,28 @@ function About() {
               Visión
             </Title>
             <Text fz={18} color="dimmed" align="center">
-              Ser reconocidos como los principales fabricantes y comercializadores de extintores y equipos de seguridad industrial en Venezuela, destacándonos por nuestra innovación, calidad y compromiso con nuestros clientes, consolidándonos como un referente en seguridad
+              Comprometidos con tu seguridad buscamos ser los mayores fabricantes, comercializadores y distribuidores a nivel nacional e internacional
+              de herramientas de seguridad industrial y vial,
+              valorando principalmente el talento humano
+              ofreciedo asesoría personalizada a nuestros
+              clientes según sus necesidades y ser una de
+              las principales empresas en servicios de protección contra incendios de la industria petrolera.
             </Text>
           </Card>
         </Col>
 
         <Col span={12} md={6}>
           <Card shadow="sm" p="lg" radius="md" withBorder>
-            <Title order={3} ta="center" mb="md" fz={32}>
+            <Title mt={15}  order={3} ta="center" mb="xl" fz={32}>
               Misión
             </Title>
-            <Text fz={18} color="dimmed" align="center">
-              Diseñar, fabricar y comercializar soluciones de seguridad industrial de alta calidad, siendo un proveedor confiable y líder en el mercado venezolano, ofreciendo productos y servicios que superen las expectativas de nuestros clientes
+            <Text mb={35} fz={18} color="dimmed" align="center">
+              En PROFIRECA nuestra misión es brindar el
+              mejor servicio y elevar la seguridad de las
+              empresas venezolanas, mediante productos
+              de calidad que marcan la diferencia, abarcando desde pequeñas empresas hasta
+              grandes industrias petroleras.
+
             </Text>
           </Card>
         </Col>

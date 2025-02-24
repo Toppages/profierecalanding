@@ -108,7 +108,7 @@ function Cart() {
 
     return (
         <div style={{ padding: '20px' }}>
-            <Title mt={15} order={2}>Tu Carrito</Title>
+            <Title mt={25} order={2}>Tu Carrito</Title>
             <Grid gutter="xl">
                 <Grid.Col span={12} sm={6} md={6}>
                     {cart.length === 0 ? (

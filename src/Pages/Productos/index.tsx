@@ -131,13 +131,21 @@ function Catalogo() {
                     </NavLink>
                 ))}
             </Drawer>
-            <Modal
+            <   Modal
                 opened={modalOpened}
                 onClose={() => setModalOpened(false)}
-                size="55%"
+                size={!isMobile ? '90%' : '55%'}
                 withCloseButton={false}
                 centered
                 overlayBlur={3}
+                styles={{
+                    root: {
+                        zIndex: 2001,
+                    },
+                    modal: {
+                        backgroundColor: 'white',
+                    },
+                }}
             >
                 {product && (
                     <Grid gutter="xl" align="center">
@@ -274,7 +282,7 @@ function Catalogo() {
                                                     </ActionIcon>
                                                     <ActionIcon
                                                         radius="xl"
-                                                        onClick={(e) => { e.stopPropagation(); handleAddToCart(data); }} 
+                                                        onClick={(e) => { e.stopPropagation(); handleAddToCart(data); }}
                                                     >
                                                         <IconShoppingCart color="red" size={34} />
                                                     </ActionIcon>
