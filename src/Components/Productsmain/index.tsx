@@ -3,8 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Card, Image, ActionIcon, Title } from '@mantine/core';
 import { useCallback, useEffect, useState, useRef } from 'react';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
+import { PData } from '../../Data/Pdata';
 
-function Productsmain() {
+interface ProductsmainProps {
+    category: string;
+}
+
+function Productsmain({ category }: ProductsmainProps) {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [embla, setEmbla] = useState<Embla | null>(null);
     const [showControls, setShowControls] = useState(false);
@@ -43,16 +48,7 @@ function Productsmain() {
 
     const handlePrev = () => embla && embla.scrollPrev();
     const handleNext = () => embla && embla.scrollNext();
-
-    const cards = [
-        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
-        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
-        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
-        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
-        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
-        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
-        { title: "texto", image: "https://www.extintoresromagnoli.com/imgs/productos/productos35_2489.jpg" },
-    ];
+    const filteredProducts = PData.filter(product => product.category === category);
 
     return (
         <div
@@ -76,29 +72,38 @@ function Productsmain() {
                     { maxWidth: 'lg', slideSize: '25%', slideGap: 10 },
                     { maxWidth: 'md', slideSize: '33.33%', slideGap: 10 },
                     { maxWidth: 'sm', slideSize: '50%', slideGap: 10 },
-                    { maxWidth: 'xs', slideSize: '100%', slideGap: 10 }, 
+                    { maxWidth: 'xs', slideSize: '100%', slideGap: 10 },
                 ]}
                 loop
                 align="start"
             >
-                {cards.map((card, index) => (
+                {filteredProducts.map((product, index) => (
                     <Carousel.Slide key={index}>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={isVisible ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.5 }}
                         >
-                            <Card mr={10} p="lg" radius="lg">
+                            <Card
+                                shadow="xl"
+                                p="lg"
+                                mb={45}
+                                radius="md"
+                                style={{ position: 'relative', width: '100%', maxWidth: '400px' }}
+                            >
+<Card.Section>
+
                                 <Image
-                                    src={card.image}
-                                    alt={card.title}
-                                    fit="contain" 
+                                    src={product.src}
+                                    alt={product.title}
+                                    fit="contain"
                                     radius="md"
                                     width="100%"
                                     height="100%"
                                     style={{ objectFit: 'contain', maxHeight: '850px' }}
                                 />
-                                <Title ta="center" order={4}>{card.title}</Title>
+</Card.Section>
+                                <Title ta="center" order={6}>{product.title}</Title>
                             </Card>
                         </motion.div>
                     </Carousel.Slide>
@@ -108,7 +113,7 @@ function Productsmain() {
             <div style={{
                 position: 'absolute',
                 bottom: '10px',
-                display:'none',
+                display: 'none',
                 left: '50%',
                 transform: 'translateX(-50%)',
                 zIndex: 2,

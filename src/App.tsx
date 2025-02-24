@@ -3,7 +3,6 @@ import Cart from './Pages/Cart/Index';
 import Home from './Home';
 import About from './Pages/About';
 import Footer from './Components/Footer/Index';
-import Navbar from './Components/Navbar';
 import Contact from './Pages/Contact';
 import Service  from './Pages/Service/Index';
 import Catalogo from './Pages/Productos';

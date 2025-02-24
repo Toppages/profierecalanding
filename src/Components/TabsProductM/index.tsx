@@ -5,11 +5,12 @@ import { useState } from "react";
 function TabsProductM() {
     const [activeTab, setActiveTab] = useState(0);
 
-    const tabs = ['Texto', 'Texto', 'Texto'];
+    const tabs = ['Extintor cargado', 'Equipos industriales', 'Accesorios y repuestos'];
 
     const handleTabClick = (index: number) => {
         setActiveTab(index);
     };
+
     return (
         <>
             <div className="tabs-container">
@@ -32,9 +33,9 @@ function TabsProductM() {
                 </div>
 
                 <div className="tab-content">
-                    {activeTab === 0 && <Productsmain />}
-                    {activeTab === 1 && <Productsmain />}
-                    {activeTab === 2 && <Productsmain />}
+                    {activeTab === 0 && <Productsmain category="Extintor cargado" />}
+                    {activeTab === 1 && <Productsmain category="Equipos industriales" />}
+                    {activeTab === 2 && <Productsmain category="Accesorios y repuestos" />}
                 </div>
             </div>
         </>

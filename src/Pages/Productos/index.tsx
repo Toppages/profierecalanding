@@ -250,50 +250,50 @@ function Catalogo() {
                                         animate={{ opacity: 1, y: 0 }}
                                         whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                                     >
-                                    <Card
-    shadow="xl"
-    p="lg"
-    radius="md"
-    style={{ position: 'relative', width: '100%', maxWidth: '400px' }}
-    onClick={() => handleOpenModal(data)} // Esto abre el modal al hacer clic en la carta
->
-    <Card.Section>
-        <Group
-            style={{
-                position: 'absolute',
-                top: '10px',
-                left: '0',
-                right: '0',
-                zIndex: 1,
-                justifyContent: 'space-between',
-                padding: '0 10px',
-            }}
-        >
-            <ActionIcon onClick={(e) => { e.stopPropagation(); handleOpenModal(data); }} size="lg" radius="xl">
-                <IconEye color="red" size={34} />
-            </ActionIcon>
-            <ActionIcon 
-                radius="xl" 
-                onClick={(e) => { e.stopPropagation(); handleAddToCart(data); }} // Detiene la propagación aquí
-            >
-                <IconShoppingCart color="red" size={34} />
-            </ActionIcon>
-        </Group>
+                                        <Card
+                                            shadow="xl"
+                                            p="lg"
+                                            radius="md"
+                                            style={{ position: 'relative', width: '100%', maxWidth: '400px' }}
+                                            onClick={() => handleOpenModal(data)}
+                                        >
+                                            <Card.Section>
+                                                <Group
+                                                    style={{
+                                                        position: 'absolute',
+                                                        top: '10px',
+                                                        left: '0',
+                                                        right: '0',
+                                                        zIndex: 1,
+                                                        justifyContent: 'space-between',
+                                                        padding: '0 10px',
+                                                    }}
+                                                >
+                                                    <ActionIcon onClick={(e) => { e.stopPropagation(); handleOpenModal(data); }} size="lg" radius="xl">
+                                                        <IconEye color="red" size={34} />
+                                                    </ActionIcon>
+                                                    <ActionIcon
+                                                        radius="xl"
+                                                        onClick={(e) => { e.stopPropagation(); handleAddToCart(data); }} 
+                                                    >
+                                                        <IconShoppingCart color="red" size={34} />
+                                                    </ActionIcon>
+                                                </Group>
 
-        {data.src && (
-            <Image
-                src={data.src}
-                alt={data.title}
-                fit="contain"
-                style={{ width: '100%', height: 'auto', objectFit: 'cover', maxWidth: '100%', margin: '0 auto' }}
-            />
-        )}
-    </Card.Section>
+                                                {data.src && (
+                                                    <Image
+                                                        src={data.src}
+                                                        alt={data.title}
+                                                        fit="contain"
+                                                        style={{ width: '100%', height: 'auto', objectFit: 'cover', maxWidth: '100%', margin: '0 auto' }}
+                                                    />
+                                                )}
+                                            </Card.Section>
 
-    <Title order={6} style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '100%' }}>
-        {data.title}
-    </Title>
-</Card>
+                                            <Title order={6} style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '100%' }}>
+                                                {data.title}
+                                            </Title>
+                                        </Card>
 
                                     </motion.div>
                                 </Grid.Col>
