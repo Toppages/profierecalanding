@@ -15,6 +15,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
+    
+ <div style={{ background: '#fafafa' }}>
+
     <CartProvider>
       <Router>
 
@@ -42,6 +45,7 @@ function App() {
         <Footer />
       </Router>
     </CartProvider>
+ </div>
   );
 }
 
