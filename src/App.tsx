@@ -1,52 +1,61 @@
-import './App.css';
-import Cart from './Pages/Cart/Index';
-import Home from './Home';
-import About from './Pages/About';
-import Footer from './Components/Footer/Index';
-import Contact from './Pages/Contact';
-import Service from './Pages/Service/Index';
-import Catalogo from './Pages/Productos';
-import HideAppBar from './Components/Hidebar/hide';
-import ScrollToTop from "./ScrollToTop";
-import { ActionIcon } from '@mantine/core';
-import { CartProvider } from './CartContext';
-import { IconBrandWhatsapp } from '@tabler/icons-react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { CartProvider } from "@/context/CartContext";
+import { CartDrawer } from "@/components/cart/CartDrawer";
+import Index from "./pages/Index";
+import Catalogo from "./pages/Catalogo";
+import Servicios from "./pages/Servicios";
+import Contacto from "./pages/Contacto";
+import SobreNosotros from "./pages/SobreNosotros";
+import NotFound from "./pages/NotFound";
 
-function App() {
-  return (
-    
- <div style={{ background: '#fafafa' }}>
+// Componente ScrollToTop embebido
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth", // Puedes cambiar a 'auto' si no quieres scroll suave
+    });
+  }, [pathname]);
+
+  return null;
+};
+
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
     <CartProvider>
-      <Router>
-
-        <ScrollToTop />
-        <HideAppBar />
-        <Routes>
-          <Route path="/profierecalanding" element={<Home />} />
-          <Route path="/profierecalanding/Catalogo" element={<Catalogo />} />
-          <Route path="/profierecalanding/Nosotros" element={<About />} />
-          <Route path="/profierecalanding/Contacto" element={<Contact />} />
-          <Route path="/profierecalanding/Servicio" element={<Service />} />
-          <Route path="/profierecalanding/Cart" element={<Cart />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
-        <a
-          href="https://wa.me/+584127341636?text=hola"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 1000 }}
-        >
-          <ActionIcon p={8} color="green" size="xl" radius="xl" variant="filled">
-            <IconBrandWhatsapp size={34} />
-          </ActionIcon>
-        </a>
-        <Footer />
-      </Router>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <CartDrawer />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/catalogo" element={<Catalogo />} />
+            <Route path="/servicios" element={<Servicios />} />
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
     </CartProvider>
- </div>
-  );
-}
+  </QueryClientProvider>
+);
 
 export default App;

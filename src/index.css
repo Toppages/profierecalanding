@@ -1,33 +1,202 @@
 
-::-webkit-scrollbar {
-    display: none;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222 47% 11%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.75rem;
+
+    --fire: 0 72% 51%;
+    --fire-light: 0 72% 61%;
+    --fire-dark: 0 72% 41%;
+    --fire-foreground: 0 0% 100%;
+
+    --safety: 159 64% 45%;
+    --safety-light: 159 64% 55%;
+    --safety-dark: 159 64% 35%;
+    --safety-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --fire: 0 72% 51%;
+    --fire-light: 0 72% 61%;
+    --fire-dark: 0 72% 41%;
+    --fire-foreground: 0 0% 100%;
+
+    --safety: 159 64% 45%;
+    --safety-light: 159 64% 55%;
+    --safety-dark: 159 64% 35%;
+    --safety-foreground: 0 0% 100%;
+  }
 }
 
-html {
-    scrollbar-width: none;
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 100%;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tighter;
+  }
 }
 
-body {
-    -ms-overflow-style: none;
+@layer components {
+  .glass {
+    @apply bg-background/80 backdrop-blur-lg border border-border/50 shadow-md;
+  }
+  
+  .glass-card {
+    @apply bg-card/90 backdrop-blur-md border border-border/50 shadow-md transition-all duration-300 hover:shadow-lg;
+  }
+
+  .animate-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-fire to-fire-light;
+  }
+  
+  .safety-gradient {
+    @apply bg-gradient-to-r from-safety-dark to-safety;
+  }
+  
+  .fire-gradient {
+    @apply bg-gradient-to-r from-fire-dark to-fire;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
 }
 
-.active-link {
-    color: red; 
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    transition: all 0.3s ease-in-out;
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
-.active-link:hover {
-    text-decoration-thickness: 5px;
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
-.icon {
-    color: red;
-    transition: color 0.3s ease;
+.animate-pulse-slow {
+  animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.icon:hover {
-    color: white;
-    background-color: #273036;
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Utility class para pantallas extra pequeñas */
+@media (min-width: 400px) {
+  .xs\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Estilos para mejorar la visualización en dispositivos móviles */
+@media (max-width: 640px) {
+  .dialog-content {
+    padding: 1rem;
+    margin: 1rem;
+    width: calc(100% - 2rem);
+    max-width: calc(100% - 2rem);
+  }
 }
