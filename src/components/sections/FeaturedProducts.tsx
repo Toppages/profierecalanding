@@ -72,7 +72,7 @@ export function FeaturedProducts() {
           className="relative aspect-square p-6 overflow-hidden bg-muted bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://res.cloudinary.com/di0btw2pi/image/upload/v1747406907/FONDO_PRODUCTOS_uebcvv.png')",
+              "url('https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/cbc8846c-11d1-43fc-9a73-0e9517e03300/public')",
           }}
         >
                       <img

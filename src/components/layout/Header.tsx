@@ -78,23 +78,22 @@ export function Header() {
           : "bg-transparent py-4"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto -mt-10  px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link 
             to="/" 
             className="flex items-center"
             aria-label="Inicio"
           >
-            <div style={{ width: 70, marginLeft: 'auto', marginRight: 'auto' }}>
               <img
                 src={theme === "light" 
-                  ? "https://res.cloudinary.com/di0btw2pi/image/upload/v1744139199/PROFIRECA_Negro_q4yio4.png" 
-                  : "https://res.cloudinary.com/di0btw2pi/image/upload/v1744139201/PROFIRECA_l5u4ma.png"
+                  ? "https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/7794b0c3-3218-42cc-5883-6488f2f70f00/public" 
+                  : "https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/c0932ef3-971a-4f98-f1cb-b9f6e2de3d00/public"
                 }
                 alt="Logo PROFIRECA"
-                style={{ borderRadius: '8px', width: '100%', display: 'block' }}
+                
+                  className="h-32 w-auto object-contain"
               />
-            </div>
           </Link>
           
           {/* Desktop Navigation */}

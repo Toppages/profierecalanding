@@ -13,7 +13,7 @@ export default function SobreNosotros() {
         <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img 
-              src="https://res.cloudinary.com/di0btw2pi/image/upload/v1747230102/FONDO_LEMA_PROFIRECA_a4lu8h.png" 
+              src="https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/d1c1318e-4fc1-4ea3-7e3b-9fe2188ba100/public" 
               alt="Extintores PROFIRECA" 
               className="w-full h-full object-cover"
             />
@@ -95,7 +95,7 @@ export default function SobreNosotros() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               <div className="bg-card/70 backdrop-blur-sm p-6 rounded-lg shadow-md">
                 <img 
-                  src="https://res.cloudinary.com/di0btw2pi/image/upload/v1747406907/PRODUCTOS_DE_CALIDAD_500X300_hgh8kv.png" 
+                  src="https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/903d0210-aed4-4f8d-c50f-17a7380e1300/public" 
                   alt="Extintores" 
                   className="w-full h-48 object-cover rounded-md mb-4"
                 />
@@ -107,7 +107,7 @@ export default function SobreNosotros() {
               
               <div className="bg-card/70 backdrop-blur-sm p-6 rounded-lg shadow-md">
                 <img 
-                  src="https://res.cloudinary.com/di0btw2pi/image/upload/v1747406906/EQUIPO_PROFESIONAL_500X300_mhy6e9.png" 
+                  src="https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/05d3ab95-5638-405d-3d4e-774f62777000/public" 
                   alt="Equipo profesional" 
                   className="w-full h-48 object-cover rounded-md mb-4"
                 />
@@ -205,42 +205,42 @@ export default function SobreNosotros() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="aspect-video rounded-xl overflow-hidden">
                 <img 
-                  src="https://res.cloudinary.com/di0btw2pi/image/upload/v1744140971/VARIADOS_500X300_2_wdoomq.png" 
+                  src="https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/ab184a62-ed47-4d0e-6430-b29c462f3400/public" 
                   alt="Extintores profesionales" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="aspect-video rounded-xl overflow-hidden">
                 <img 
-                  src="https://res.cloudinary.com/di0btw2pi/image/upload/v1744140972/VARIADOS_500X300_tpuhrv.png" 
+                  src="https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/3178417b-c50b-47a8-70fb-8a03e70a1600/public" 
                   alt="Equipo de seguridad" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="aspect-video rounded-xl overflow-hidden">
                 <img 
-                  src="https://res.cloudinary.com/di0btw2pi/image/upload/v1744140972/VARIADOS_500X300_5_iip5hx.png" 
+                  src="https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/5ce77e9e-c9d4-435b-e223-7fdf72544000/public" 
                   alt="Mantenimiento de extintores" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="aspect-video rounded-xl overflow-hidden">
                 <img 
-                  src="https://res.cloudinary.com/di0btw2pi/image/upload/v1744140980/asset_quienes_somos_2_e4jrtx.png" 
+                  src="https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/b80bd251-324a-4f64-0910-a0a72164ea00/public" 
                   alt="Kit de control de derrames" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="aspect-video rounded-xl overflow-hidden">
                 <img 
-                  src="https://res.cloudinary.com/di0btw2pi/image/upload/v1744141611/VARIADOS_500X300_3_jsdfh2.png" 
+                  src="https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/a16ce7f3-c17c-446a-1cbb-b5c7e59e4e00/public" 
                   alt="Equipo técnico" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="aspect-video rounded-xl overflow-hidden">
                 <img 
-                  src="https://res.cloudinary.com/di0btw2pi/image/upload/v1744141611/VARIADOS_500X300_4_ozvgwo.png" 
+                  src="https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/7ece0d55-2ab4-44ae-b1a9-27a51e179d00/public" 
                   alt="Revisión de equipos" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />

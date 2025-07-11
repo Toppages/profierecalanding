@@ -89,7 +89,7 @@ const handleSubmit = (e: React.FormEvent) => {
           <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 z-0">
               <img
-                src="https://res.cloudinary.com/di0btw2pi/image/upload/v1747430209/FOTO_CONTACTO_cyhsuk.jpg"
+                src="https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/85304a98-8d61-4cd6-ae71-5b826eb78a00/public"
                 alt="Extintores PROFIRECA"
                 className="w-full h-full object-cover"
               />

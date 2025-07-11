@@ -59,7 +59,7 @@ export function Hero() {
             <div className="relative w-full aspect-square max-w-lg mx-auto animate-float">
               <div className="absolute inset-0 rounded-3xl overflow-hidden bg-gradient-to-tr from-fire/20 to-safety/20 backdrop-blur-sm -rotate-6 transform-gpu"></div>
               <img 
-                src="https://res.cloudinary.com/di0btw2pi/image/upload/v1747423218/IMAGEN_PRINCIPAL_PAGINA_sxxc6m.jpg" 
+                src="https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/957056d1-1a16-4c20-b509-283e0d4be500/public" 
                 alt="Extintores profesionales para la industria" 
                 className="relative mt-5 rounded-2xl object-cover rotate-3 transform-gpu w-full h-full"
               />

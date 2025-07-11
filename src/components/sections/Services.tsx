@@ -63,8 +63,8 @@ export function Services() {
 
   const imageUrl =
     theme === "light"
-      ? "https://res.cloudinary.com/di0btw2pi/image/upload/v1747406905/SENCAMER_RIJ_415_NEGRO_equpye.png"
-      : "https://res.cloudinary.com/di0btw2pi/image/upload/v1747406905/SENCAMER_RIJ_415_BLANCO_o3gzzt.png";
+      ? "https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/93d23e4b-c7a8-4e8c-be4e-814320823400/public"
+      : "https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/d0eb6764-633e-4aba-13b4-47f9e418c700/public";
 
   return (
     <section className="py-24">

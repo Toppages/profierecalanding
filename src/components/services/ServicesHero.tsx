@@ -35,7 +35,7 @@ export function ServicesHero() {
           <div className="lg:w-1/2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="https://res.cloudinary.com/di0btw2pi/image/upload/v1744140980/asset_quienes_somos_rogbin.png" 
+                src="https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/02826e52-67b4-4d26-7048-7956358e2c00/public" 
                 alt="Profesional de Profireca inspeccionando sistemas contra incendios" 
                 className="w-full object-cover h-[400px]"
               />
