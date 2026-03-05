@@ -72,11 +72,7 @@ export function ServicesProcess() {
                     <h3 className="text-xl font-bold">{step.title}</h3>
                     <p className="text-muted-foreground">{step.description}</p>
                   </div>
-                  {index < steps.length - 1 && (
-                    <div className="absolute left-8 mt-20 hidden md:block">
-                      <ArrowRight className="h-6 w-6 text-muted-foreground" />
-                    </div>
-                  )}
+                 
                 </div>
               ))}
             </div>

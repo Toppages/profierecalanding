@@ -57,7 +57,7 @@ export function FeaturedProducts() {
               Equipos de alta calidad para la protección contra incendios
             </h2>
             <p className="text-muted-foreground">
-              Nuestros productos cumplen con los más altos estándares de calidad y están certificados por las principales normativas nacionales e internacionales.
+              Nuestros productos cumplen con los más altos estándares de calidad y están fabricados bajo normas nacionales e internacionales
             </p>
           </div>
         </div>

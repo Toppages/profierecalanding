@@ -1,5 +1,4 @@
-
-import { ArrowRight, Shield, Zap, Flame } from "lucide-react";
+import { ArrowRight, Zap, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -14,21 +13,26 @@ export function Hero() {
       
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="flex-1 space-y-8 text-center lg:text-left">
+          {/* Texto principal */}
+          <div className="flex-1 space-y-8 text-center">
             <div className="space-y-2">
               <div className="inline-flex items-center px-3 py-1 rounded-full border border-border bg-background shadow-sm text-sm font-medium text-fire">
                 <Flame className="h-4 w-4 mr-2 text-fire" />
                 <span>Empresa Líder en Seguridad Contra Incendios</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight lg:leading-tight font-display text-balance">
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center font-display text-balance">
                 <span className="text-gradient">Soluciones Profesionales</span> para la Seguridad Contra Incendios
               </h1>
-              <p className="text-muted-foreground text-lg md:text-xl max-w-xl mx-auto lg:mx-0">
-                Protegemos vidas y propiedades con extintores y sistemas de seguridad de alta calidad, respaldados por expertos certificados.
+
+              <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto text-center text-center">
+                Protegemos vidas y propiedades con extintores y sistemas de seguridad de alta calidad, y fabricados bajo normas nacionales e internacionales. 
+                Extintores adecuados especialmente para plantas, talleres y almacenes industriales, galpones, oficinas, comercios, medios de transporte, vehículos y hogares.
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            {/* Botones */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-fire hover:bg-fire-dark text-white gap-2">
                 <Link to="/catalogo">
                   Explorar Productos
@@ -42,8 +46,8 @@ export function Hero() {
               </Button>
             </div>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
-             
+            {/* Features */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <div className="flex items-center gap-2">
                 <Zap className="h-5 w-5 text-fire" />
                 <span className="text-sm font-medium">Respuesta 24/7</span>
@@ -55,6 +59,7 @@ export function Hero() {
             </div>
           </div>
           
+          {/* Imagen */}
           <div className="flex-1 relative">
             <div className="relative w-full aspect-square max-w-lg mx-auto animate-float">
               <div className="absolute inset-0 rounded-3xl overflow-hidden bg-gradient-to-tr from-fire/20 to-safety/20 backdrop-blur-sm -rotate-6 transform-gpu"></div>
@@ -63,7 +68,6 @@ export function Hero() {
                 alt="Extintores profesionales para la industria" 
                 className="relative mt-5 rounded-2xl object-cover rotate-3 transform-gpu w-full h-full"
               />
-           
             </div>
           </div>
         </div>

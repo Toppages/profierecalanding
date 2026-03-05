@@ -14,7 +14,7 @@ const banners = [
   {
     id: 1,
     title: "Servicios Residenciales",
-    description: "Protege tu hogar con sistemas de detección y respuesta ante incendios, instalados por expertos.",
+    description: "Protege tu hogar con sistemas de detección y respuesta ante incendios, instalados por expertos bajo normas COVENIN, NFPA y Bomberos Municipales",
     imageUrl: "https://imagedelivery.net/mdYNjHMfu0qYk6YLCukv2Q/eeb9c038-2ecd-42a4-bd2e-e06d350b1d00/public",
     ctaText: "Consultar ahora",
     ctaLink: "/servicios",
