@@ -47,6 +47,8 @@ import { useToast } from "@/components/ui/use-toast";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
+// Componente principal del catálogo de productos de Profireca
+// Gestiona listado de productos, filtros por categoría y subcategoría, búsqueda, paginación y modal de detalles.
 const Catalogo = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -66,10 +68,15 @@ const Catalogo = () => {
   const PRODUCTS_PER_PAGE = 12;
   const [allProducts, setAllProducts] = useState<Product[]>([]);
 
+  // Función para agregar productos al carrito desde el contexto global
+  // Hook para mostrar notificaciones tipo toast
+  // Hook para detectar si el usuario está en dispositivo móvil
   const { addToCart } = useCart();
   const { toast } = useToast();
   const isMobile = useIsMobile();
 
+  // Carga inicial de productos desde la API y establece categorías y subcategorías
+  // Inicializa productos filtrados con todos los productos
   useEffect(() => {
     const loadProducts = async () => {
       const products = await fetchProducts();
@@ -81,12 +88,15 @@ const Catalogo = () => {
     loadProducts();
   }, []);
 
+  // Actualiza la lista de subcategorías cuando cambia la categoría seleccionada o los productos
   useEffect(() => {
     const newSubcategories = getSubcategories(allProducts, selectedCategory);
     setSubcategories(newSubcategories);
     setSelectedSubcategory(undefined);
   }, [selectedCategory, allProducts]);
 
+  // Filtra productos según categoría, subcategoría y término de búsqueda
+  // Reinicia la página actual a 1 después de filtrar
   useEffect(() => {
     const filtered = allProducts.filter((product) => {
       const matchCategory =
@@ -102,13 +112,24 @@ const Catalogo = () => {
     setCurrentPage(1);
   }, [selectedCategory, selectedSubcategory, searchTerm, allProducts]);
 
+  // Calcula el total de páginas necesarias según productos filtrados
   const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
 
+  // Obtiene los productos correspondientes a la página actual
   const currentProducts = filteredProducts.slice(
     (currentPage - 1) * PRODUCTS_PER_PAGE,
     currentPage * PRODUCTS_PER_PAGE,
   );
 
+  // Abre modal de detalles de producto y reinicia cantidad
+  // Agrega producto al carrito desde la tarjeta de producto
+  // Agrega producto al carrito desde el modal de detalles
+  // Incrementa la cantidad seleccionada
+  // Decrementa la cantidad seleccionada (mínimo 1)
+  // Maneja cambios manuales de cantidad desde el input del modal
+  // Maneja cambio de categoría desde el filtro
+  // Maneja cambio de subcategoría desde el filtro
+  // Maneja cambio de página en la paginación y hace scroll al inicio
   const handleViewDetails = (product: Product) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
@@ -174,6 +195,8 @@ const Catalogo = () => {
   };
 
   // Filter component
+  // Componente inline que renderiza los filtros de categoría y subcategoría
+  // Incluye selectores y lógica de habilitación/deshabilitación según selección
   const FiltersComponent = () => (
     <div className="space-y-4">
       <div>
@@ -218,6 +241,8 @@ const Catalogo = () => {
   );
 
   // Product Card Component (Inlined)
+  // Componente inline que renderiza cada tarjeta de producto
+  // Muestra imagen, título, categoría, subcategoría y botones de acción (Detalles y Cotizar)
   const ProductCard = ({ product }: { product: Product }) => {
     return (
       <Card className="glass-card overflow-hidden transition-all duration-300 hover:shadow-md h-full">

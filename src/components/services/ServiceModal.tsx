@@ -20,7 +20,7 @@ import {
   SheetTitle,
   SheetDescription,
 } from "@/components/ui/sheet";
-
+// Props del modal de servicio: estado abierto, función para cerrar y datos del servicio
 interface ServiceModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -32,7 +32,8 @@ interface ServiceModalProps {
     details?: string;
   } | null;
 }
-
+// Modal para mostrar información de un servicio
+// Permite ver detalles y enviar solicitud vía WhatsApp
 export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
   const [formData, setFormData] = useState({
     name: "",
@@ -45,12 +46,15 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
   const isMobile = useIsMobile();
 
   if (!service) return null;
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  // Maneja cambios en los inputs del formulario y actualiza el estado
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
+  // Envía la información del formulario a WhatsApp
+  // Reinicia el formulario y cierra el modal
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -66,7 +70,7 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
     setFormData({ name: "", email: "", phone: "", message: "" });
     onClose();
   };
-
+  // Contenido principal del modal: detalles del servicio y formulario de solicitud
   const Content = (
     <div className="grid gap-4">
       <div className="flex items-center gap-3 mb-2">
@@ -86,16 +90,48 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
       )}
 
       <form onSubmit={handleSubmit} className="border-t pt-4 space-y-4">
-        <h3 className="text-lg font-medium">Solicita información sobre este servicio</h3>
+        <h3 className="text-lg font-medium">
+          Solicita información sobre este servicio
+        </h3>
 
-        <Input name="name" placeholder="Tu nombre" value={formData.name} onChange={handleInputChange} required />
-        <Input name="email" type="email" placeholder="tu@email.com" value={formData.email} onChange={handleInputChange} required />
-        <Input name="phone" placeholder="Tu número de teléfono" value={formData.phone} onChange={handleInputChange} required />
-        <Textarea name="message" placeholder="Describe tus necesidades" value={formData.message} onChange={handleInputChange} required />
+        <Input
+          name="name"
+          placeholder="Tu nombre"
+          value={formData.name}
+          onChange={handleInputChange}
+          required
+        />
+        <Input
+          name="email"
+          type="email"
+          placeholder="tu@email.com"
+          value={formData.email}
+          onChange={handleInputChange}
+          required
+        />
+        <Input
+          name="phone"
+          placeholder="Tu número de teléfono"
+          value={formData.phone}
+          onChange={handleInputChange}
+          required
+        />
+        <Textarea
+          name="message"
+          placeholder="Describe tus necesidades"
+          value={formData.message}
+          onChange={handleInputChange}
+          required
+        />
 
         <DialogFooter className="mt-4">
-          <Button variant="outline" type="button" onClick={onClose}>Cancelar</Button>
-          <Button type="submit" className="bg-fire text-white" disabled={isSubmitting}>
+          <Button variant="outline" type="button" onClick={onClose}>
+            Cancelar
+          </Button>
+          <Button
+            type="submit"
+            className="bg-fire text-white"
+            disabled={isSubmitting}>
             {isSubmitting ? "Enviando..." : "Enviar solicitud"}
           </Button>
         </DialogFooter>
