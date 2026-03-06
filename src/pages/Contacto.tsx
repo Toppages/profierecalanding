@@ -1,4 +1,3 @@
-
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -9,75 +8,87 @@ import { useState } from "react";
 import { Phone, Mail, MapPin, Flame } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+// Componente principal de la página de contacto de Profireca
+// Incluye formulario de contacto, selección de ciudad, información de contacto y mapa
 const Contacto = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    message: ""
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-const [selectedCity, setSelectedCity] = useState("Zulia");
+  const [selectedCity, setSelectedCity] = useState("Zulia");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  // Función que actualiza formData cuando el usuario escribe en los inputs o textarea
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
-const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+  // Función que maneja el envío del formulario
+  // Arma el mensaje, abre WhatsApp con el número correspondiente según ciudad y muestra toast de confirmación
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  const { name, email, phone, message } = formData;
+    const { name, email, phone, message } = formData;
 
-  const composedMessage = `Hola mi nombre es ${name}\n${email} (${phone})\n\nquisiera comunicar que ${message}`;
+    const composedMessage = `Hola mi nombre es ${name}\n${email} (${phone})\n\nquisiera comunicar que ${message}`;
 
-  const whatsappNumbers: Record<string, string> = {
-    Zulia: "584122359283",
-    Caracas: "584122359283",
-    Anzoategui: "584122359339"
+    const whatsappNumbers: Record<string, string> = {
+      Zulia: "584122359283",
+      Caracas: "584122359283",
+      Anzoategui: "584122359339",
+    };
+
+    const number = whatsappNumbers[selectedCity];
+
+    if (number) {
+      const url = `https://wa.me/${number}?text=${encodeURIComponent(composedMessage)}`;
+      window.open(url, "_blank");
+    }
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      toast({
+        title: "Mensaje enviado",
+        description: "Gracias por contactarnos. Te responderemos pronto.",
+      });
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    }, 1000);
   };
 
-  const number = whatsappNumbers[selectedCity];
-
-  if (number) {
-    const url = `https://wa.me/${number}?text=${encodeURIComponent(composedMessage)}`;
-    window.open(url, "_blank");
-  }
-
-  setTimeout(() => {
-    setIsSubmitting(false);
-    toast({
-      title: "Mensaje enviado",
-      description: "Gracias por contactarnos. Te responderemos pronto.",
-    });
-    setFormData({ name: "", email: "", phone: "", message: "" });
-  }, 1000);
-};
-
+  // Objeto que contiene la información de contacto (teléfono, email, dirección, mapa) para cada ciudad
   const cityContacts = {
     Zulia: {
       phone: "+58 412-2359283",
       email: "fabricaprofireca@gmail.com",
       address: "Avenida 6 entre calles C y D, diagonal a la C2, casa #C15",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.559664596235!2d-71.61429906032714!3d10.691246572862605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e89997a04389231%3A0x327497681a0c38c4!2sEXTINTORES%20PROFIRECA!5e0!3m2!1ses!2sve&zoom=100"
+      mapUrl:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.559664596235!2d-71.61429906032714!3d10.691246572862605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e89997a04389231%3A0x327497681a0c38c4!2sEXTINTORES%20PROFIRECA!5e0!3m2!1ses!2sve&zoom=100",
     },
     Caracas: {
       phone: "+58 412-2359283",
       email: "Mail@gmail.com",
-      address: "Calle este 12 entre esquina de rivas y miranda segunda casa, PLANTA NRO 124-A",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3923.036985885686!2d-66.91113362496202!3d10.497750589634602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDI5JzUxLjkiTiA2NsKwNTQnMzAuOCJX!5e0!3m2!1ses!2sve!4v1737401092181!5m2!1ses!2sve"
+      address:
+        "Calle este 12 entre esquina de rivas y miranda segunda casa, PLANTA NRO 124-A",
+      mapUrl:
+        "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3923.036985885686!2d-66.91113362496202!3d10.497750589634602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDI5JzUxLjkiTiA2NsKwNTQnMzAuOCJX!5e0!3m2!1ses!2sve!4v1737401092181!5m2!1ses!2sve",
     },
     Anzoategui: {
       phone: "+58 412-6425335",
       email: "Mail@gmail.com",
       address: "Lorem ipsum",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3928.62788937227!2d-65.04331132496812!3d10.047533090060321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAyJzUxLjEiTiA2NcKwMDInMjYuNyJX!5e0!3m2!1ses!2sus!4v1738877137688!5m2!1ses!2sus"
-    }
+      mapUrl:
+        "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3928.62788937227!2d-65.04331132496812!3d10.047533090060321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAyJzUxLjEiTiA2NcKwMDInMjYuNyJX!5e0!3m2!1ses!2sus!4v1738877137688!5m2!1ses!2sus",
+    },
   };
 
   return (
@@ -102,11 +113,10 @@ const handleSubmit = (e: React.FormEvent) => {
                   <Flame className="h-4 w-4 mr-2 text-fire" />
                   <span>Contacto</span>
                 </div>
-                
+
                 <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto font-display">
                   ¡Estamos aquí para ayudarte, contáctanos!
                 </p>
-              
               </div>
             </div>
           </section>
@@ -166,8 +176,7 @@ const handleSubmit = (e: React.FormEvent) => {
                       <Button
                         type="submit"
                         className="bg-fire hover:bg-fire-dark text-white h-12 px-8 rounded-xl"
-                        disabled={isSubmitting}
-                      >
+                        disabled={isSubmitting}>
                         {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
                       </Button>
                     </div>
@@ -175,7 +184,10 @@ const handleSubmit = (e: React.FormEvent) => {
                 </div>
 
                 <div className="bg-muted/30 rounded-xl p-8">
-<Tabs value={selectedCity} onValueChange={setSelectedCity} className="w-full">
+                  <Tabs
+                    value={selectedCity}
+                    onValueChange={setSelectedCity}
+                    className="w-full">
                     <TabsList className="grid grid-cols-3 mb-6">
                       <TabsTrigger value="Zulia">Zulia</TabsTrigger>
                       <TabsTrigger value="Caracas">Caracas</TabsTrigger>
@@ -183,14 +195,19 @@ const handleSubmit = (e: React.FormEvent) => {
                     </TabsList>
 
                     {Object.entries(cityContacts).map(([city, info]) => (
-                      <TabsContent key={city} value={city} className="space-y-6">
+                      <TabsContent
+                        key={city}
+                        value={city}
+                        className="space-y-6">
                         <div className="grid grid-cols-1 gap-6">
                           <div className="bg-background p-4 rounded-xl">
                             <div className="flex items-center mb-2">
                               <Phone className="h-5 w-5 text-fire mr-2" />
                               <span className="font-bold">Teléfono</span>
                             </div>
-                            <h3 className="text-lg font-medium">{info.phone}</h3>
+                            <h3 className="text-lg font-medium">
+                              {info.phone}
+                            </h3>
                           </div>
 
                           <div className="bg-background p-4 rounded-xl">
@@ -198,7 +215,9 @@ const handleSubmit = (e: React.FormEvent) => {
                               <Mail className="h-5 w-5 text-fire mr-2" />
                               <span className="font-bold">Email</span>
                             </div>
-                            <h3 className="text-lg font-medium">{info.email}</h3>
+                            <h3 className="text-lg font-medium">
+                              {info.email}
+                            </h3>
                           </div>
 
                           <div className="bg-background p-4 rounded-xl">
@@ -206,7 +225,9 @@ const handleSubmit = (e: React.FormEvent) => {
                               <MapPin className="h-5 w-5 text-fire mr-2" />
                               <span className="font-bold">Dirección</span>
                             </div>
-                            <h3 className="text-lg font-medium">{info.address}</h3>
+                            <h3 className="text-lg font-medium">
+                              {info.address}
+                            </h3>
                           </div>
                         </div>
                       </TabsContent>
@@ -233,8 +254,7 @@ const handleSubmit = (e: React.FormEvent) => {
                         style={{ border: 0 }}
                         allowFullScreen={true}
                         loading="lazy"
-                        title={`Ubicación de Profireca en ${city.toUpperCase()}`}
-                      ></iframe>
+                        title={`Ubicación de Profireca en ${city.toUpperCase()}`}></iframe>
                     </TabsContent>
                   ))}
                 </Tabs>
